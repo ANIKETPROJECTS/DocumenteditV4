@@ -119,8 +119,8 @@ app.post("/api/auth/login", async (req, res) => {
 
     const db = await getDatabase();
     const employee = await db
-      .collection<Employee>("employees")
-      .findOne({ employeeId: String(employeeId) });
+      .collection("employees")
+      .findOne({ employeeId: String(employeeId) }) as Employee | null;
 
     if (!employee) {
       return res.status(401).json({
@@ -129,8 +129,8 @@ app.post("/api/auth/login", async (req, res) => {
     }
 
     let user = await db
-      .collection<User>("users")
-      .findOne({ employeeId: String(employeeId) });
+      .collection("users")
+      .findOne({ employeeId: String(employeeId) }) as User | null;
 
     if (!user) {
       const newUser: User = {
@@ -139,7 +139,7 @@ app.post("/api/auth/login", async (req, res) => {
         role: "user",
         createdAt: new Date(),
       };
-      const result = await db.collection<User>("users").insertOne(newUser);
+      const result = await db.collection("users").insertOne(newUser as any);
       user = { ...newUser, _id: result.insertedId };
     }
 
@@ -214,10 +214,10 @@ app.get("/api/images/user/:userId", async (req, res) => {
     const { userId } = req.params;
     const db = await getDatabase();
     const requests = await db
-      .collection<ImageRequest>("image_requests")
+      .collection("image_requests")
       .find({ userId })
       .sort({ uploadedAt: -1 })
-      .toArray();
+      .toArray() as any[];
 
     res.json({
       requests: requests.map((r) => ({
@@ -244,8 +244,8 @@ app.get("/api/images/download/:requestId", async (req, res) => {
 
     const db = await getDatabase();
     const request = await db
-      .collection<ImageRequest>("image_requests")
-      .findOne({ _id: new ObjectId(requestId) });
+      .collection("image_requests")
+      .findOne({ _id: new ObjectId(requestId) }) as ImageRequest | null;
 
     if (!request) {
       return res.status(404).json({ message: "Request not found" });
@@ -294,8 +294,8 @@ app.get("/api/images/download-by-id/:requestId/:type", async (req, res) => {
 
     const db = await getDatabase();
     const request = await db
-      .collection<ImageRequest>("image_requests")
-      .findOne({ _id: new ObjectId(requestId) });
+      .collection("image_requests")
+      .findOne({ _id: new ObjectId(requestId) }) as ImageRequest | null;
 
     if (!request) {
       return res.status(404).json({ message: "Image request not found" });
@@ -368,7 +368,7 @@ app.get("/api/admin/requests", async (req, res) => {
     // Use projection to avoid fetching large binary data (originalFileContent, editedFileContent)
     const total = await db.collection("image_requests").countDocuments();
     const requests = await db
-      .collection<ImageRequest>("image_requests")
+      .collection("image_requests")
       .find({}, {
         projection: {
           originalFileContent: 0,
@@ -378,7 +378,7 @@ app.get("/api/admin/requests", async (req, res) => {
       .sort({ uploadedAt: -1 })
       .skip(skip)
       .limit(limit)
-      .toArray();
+      .toArray() as any[];
 
     log(`Fetched ${requests.length} requests out of ${total} total`, "api");
 
@@ -427,7 +427,7 @@ app.post(
 
       const db = await getDatabase();
       const updatedDoc = await db
-        .collection<ImageRequest>("image_requests")
+        .collection("image_requests")
         .findOneAndUpdate(
           { _id: new ObjectId(requestId) },
           {
@@ -440,8 +440,8 @@ app.post(
               completedAt: new Date(),
             },
           },
-          { returnDocument: "after", includeResultMetadata: false }
-        );
+          { returnDocument: "after" }
+        ) as any;
       
       if (!updatedDoc) {
         return res.status(404).json({ message: "Request not found" });

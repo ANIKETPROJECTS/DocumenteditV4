@@ -1,0 +1,77 @@
+02:01:43.773 Running build in Washington, D.C., USA (East) – iad1
+02:01:43.774 Build machine configuration: 2 cores, 8 GB
+02:01:43.834 Cloning github.com/ANIKETPROJECTS/DocumenteditV4 (Branch: main, Commit: d7bcd58)
+02:01:43.847 Skipping build cache, deployment was triggered without cache.
+02:01:48.350 Cloning completed: 4.512s
+02:01:48.764 Running "vercel build"
+02:01:49.184 Vercel CLI 50.1.6
+02:01:50.010 Installing dependencies...
+02:02:00.492 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+02:02:00.576 npm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.
+02:02:00.636 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+02:02:00.674 npm warn deprecated npmlog@5.0.1: This package is no longer supported.
+02:02:01.090 npm warn deprecated gauge@3.0.2: This package is no longer supported.
+02:02:01.218 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+02:02:01.321 npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+02:02:01.322 npm warn deprecated
+02:02:01.322 npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+02:02:03.170 npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+02:02:03.193 npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+02:02:11.470 
+02:02:11.470 added 761 packages in 21s
+02:02:11.470 
+02:02:11.470 67 packages are looking for funding
+02:02:11.472   run `npm fund` for details
+02:02:11.760 
+02:02:11.760 > rest-express@1.0.0 build
+02:02:11.761 > vite build
+02:02:11.762 
+02:02:12.189 [36mvite v7.1.12 [32mbuilding for production...[36m[39m
+02:02:12.277 transforming...
+02:02:16.426 [32m✓[39m 2243 modules transformed.
+02:02:16.916 rendering chunks...
+02:02:16.927 computing gzip size...
+02:02:16.976 [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.52 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+02:02:16.976 [2m../dist/public/[22m[2massets/[22m[35mindex-Ce887h6_.css  [39m[1m[2m115.76 kB[22m[1m[22m[2m │ gzip:  18.08 kB[22m
+02:02:16.976 [2m../dist/public/[22m[2massets/[22m[36mindex-CnSn_8nI.js   [39m[1m[33m627.52 kB[39m[22m[2m │ gzip: 190.48 kB[22m
+02:02:16.976 [32m✓ built in 4.75s[39m
+02:02:16.976 [33m
+02:02:16.977 (!) Some chunks are larger than 500 kB after minification. Consider:
+02:02:16.977 - Using dynamic import() to code-split the application
+02:02:16.977 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+02:02:16.977 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+02:02:17.079 Running "npm run vercel-build"
+02:02:17.192 
+02:02:17.192 > rest-express@1.0.0 vercel-build
+02:02:17.192 > vite build
+02:02:17.192 
+02:02:17.523 [36mvite v7.1.12 [32mbuilding for production...[36m[39m
+02:02:17.597 transforming...
+02:02:21.732 [32m✓[39m 2243 modules transformed.
+02:02:22.130 rendering chunks...
+02:02:22.139 computing gzip size...
+02:02:22.161 [2m../dist/public/[22m[32mindex.html                 [39m[1m[2m  1.52 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+02:02:22.162 [2m../dist/public/[22m[2massets/[22m[35mindex-Ce887h6_.css  [39m[1m[2m115.76 kB[22m[1m[22m[2m │ gzip:  18.08 kB[22m
+02:02:22.162 [2m../dist/public/[22m[2massets/[22m[36mindex-CnSn_8nI.js   [39m[1m[33m627.52 kB[39m[22m[2m │ gzip: 190.48 kB[22m
+02:02:22.162 [33m
+02:02:22.162 (!) Some chunks are larger than 500 kB after minification. Consider:
+02:02:22.162 - Using dynamic import() to code-split the application
+02:02:22.162 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+02:02:22.162 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+02:02:22.163 [32m✓ built in 4.62s[39m
+02:02:22.523 Using TypeScript 5.6.3 (local user-provided)
+02:02:27.344 api/index.ts(121,28): error TS2347: Untyped function calls may not accept type arguments.
+02:02:27.345 api/index.ts(131,22): error TS2347: Untyped function calls may not accept type arguments.
+02:02:27.346 api/index.ts(142,28): error TS2347: Untyped function calls may not accept type arguments.
+02:02:27.346 api/index.ts(216,28): error TS2347: Untyped function calls may not accept type arguments.
+02:02:27.346 api/index.ts(223,31): error TS7006: Parameter 'r' implicitly has an 'any' type.
+02:02:27.346 api/index.ts(246,27): error TS2347: Untyped function calls may not accept type arguments.
+02:02:27.347 api/index.ts(296,27): error TS2347: Untyped function calls may not accept type arguments.
+02:02:27.347 api/index.ts(370,28): error TS2347: Untyped function calls may not accept type arguments.
+02:02:27.347 api/index.ts(386,31): error TS7006: Parameter 'r' implicitly has an 'any' type.
+02:02:27.347 api/index.ts(429,32): error TS2347: Untyped function calls may not accept type arguments.
+02:02:27.347 
+02:02:29.285 Build Completed in /vercel/output [39s]
+02:02:29.405 Deploying outputs...
+02:02:36.754 Deployment completed
+02:02:37.721 Creating build cache...
