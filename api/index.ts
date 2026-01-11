@@ -3,6 +3,14 @@ import { MongoClient, ObjectId, Binary } from "mongodb";
 import multer from "multer";
 import path from "path";
 import nodemailer from "nodemailer";
+import { v2 as cloudinary } from "cloudinary";
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const app = express();
 
@@ -183,12 +191,24 @@ app.post("/api/images/upload", upload.single("image"), async (req, res) => {
     const imageBuffer = req.file.buffer;
     const imageMimeType = req.file.mimetype;
 
+    // Upload to Cloudinary
+    const uploadResult = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: "original" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+      uploadStream.end(imageBuffer);
+    }) as any;
+
     const newRequest: ImageRequest = {
       userId,
       employeeId,
       displayName,
       originalFileName: req.file.originalname,
-      originalFilePath: `data:${imageMimeType};base64,${imageBuffer.toString("base64")}`,
+      originalFilePath: uploadResult.secure_url,
       originalFileContent: imageBuffer.toString("base64"),
       originalContentType: imageMimeType,
       status: "pending",
@@ -443,6 +463,18 @@ app.post(
       const imageBuffer = req.file.buffer;
       const imageMimeType = req.file.mimetype;
 
+      // Upload to Cloudinary
+      const uploadResult = await new Promise((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+          { folder: "edited" },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        );
+        uploadStream.end(imageBuffer);
+      }) as any;
+
       const db = await getDatabase();
       const updatedDoc = await db
         .collection("image_requests")
@@ -451,7 +483,7 @@ app.post(
           {
             $set: {
               editedFileName: req.file.originalname,
-              editedFilePath: `data:${imageMimeType};base64,${imageBuffer.toString("base64")}`,
+              editedFilePath: uploadResult.secure_url,
               editedFileContent: new Binary(imageBuffer) as any,
               editedContentType: imageMimeType,
               status: "completed",
