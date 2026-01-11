@@ -91,13 +91,13 @@ export class MongoStorage implements IStorage {
       newRequest.editedFileContent = new Binary(Buffer.from(base64Data, "base64"));
     }
 
-    const result = await db.collection("image_requests").insertOne(newRequest);
+    const result = await db.collection("image_storage").insertOne(newRequest);
     return { ...request, uploadedAt: newRequest.uploadedAt, _id: result.insertedId };
   }
 
   async getImageRequestById(id: string): Promise<ImageRequest | null> {
     const db = await getDatabase();
-    const doc = await db.collection("image_requests").findOne({ _id: new ObjectId(id) }) as any;
+    const doc = await db.collection("image_storage").findOne({ _id: new ObjectId(id) }) as any;
     if (!doc) return null;
 
     // Convert Binary back to base64 for the frontend
@@ -115,7 +115,7 @@ export class MongoStorage implements IStorage {
 
   async getImageRequestsByUserId(userId: string): Promise<ImageRequest[]> {
     const db = await getDatabase();
-    const requests = await db.collection('image_requests')
+    const requests = await db.collection('image_storage')
       .find({ userId })
       .project({ originalFileContent: 0, editedFileContent: 0 })
       .sort({ uploadedAt: -1 })
@@ -125,7 +125,7 @@ export class MongoStorage implements IStorage {
 
   async getAllImageRequests(): Promise<ImageRequest[]> {
     const db = await getDatabase();
-    const requests = await db.collection('image_requests')
+    const requests = await db.collection('image_storage')
       .find({})
       .project({ originalFileContent: 0, editedFileContent: 0 })
       .sort({ uploadedAt: -1 })
@@ -146,7 +146,7 @@ export class MongoStorage implements IStorage {
       docUpdate.editedFileContent = new Binary(Buffer.from(base64Data, "base64"));
     }
 
-    const result = await db.collection('image_requests').findOneAndUpdate(
+    const result = await db.collection('image_storage').findOneAndUpdate(
       { _id: new ObjectId(id) },
       { $set: docUpdate },
       { returnDocument: 'after' }
