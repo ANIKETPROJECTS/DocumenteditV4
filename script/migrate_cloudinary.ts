@@ -11,13 +11,12 @@ cloudinary.config({
 });
 
 async function migrate() {
-  console.log("Starting Cloudinary migration...");
+  console.log("Starting Cloudinary migration with enhanced logging...");
   const db = await getDatabase();
   const collection = db.collection("image_storage");
 
   const rawContent = fs.readFileSync(path.join(process.cwd(), "attached_assets/Pasted--id-oid-6957b6abab1c4e894f871373-userId-6957b68bab1c4-1_1768156542404.txt"), "utf8");
   
-  // Find the start of the JSON array
   const jsonStart = rawContent.indexOf('[');
   if (jsonStart === -1) {
     throw new Error("Could not find start of JSON array in file");
@@ -31,49 +30,77 @@ async function migrate() {
     const employeeId = record.employeeId;
     const employeeDir = path.join(process.cwd(), "images for DB", employeeId);
     
-    console.log(`Processing record ${oldData.indexOf(record) + 1}/${oldData.length}: ${employeeId}`);
+    console.log(`\n--- Record ${oldData.indexOf(record) + 1}/${oldData.length}: ${employeeId} ---`);
 
     const updateData: any = { ...record };
     delete updateData._id;
 
-    // Handle Dates
     if (updateData.uploadedAt?.$date) updateData.uploadedAt = new Date(updateData.uploadedAt.$date);
     if (updateData.completedAt?.$date) updateData.completedAt = new Date(updateData.completedAt.$date);
 
-    // Upload Original
-    if (fs.existsSync(path.join(employeeDir, "original.jpg"))) {
+    // Find original file with various extensions
+    const originalExts = ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG'];
+    let originalFile = null;
+    for (const ext of originalExts) {
+      const p = path.join(employeeDir, `original${ext}`);
+      if (fs.existsSync(p)) {
+        originalFile = p;
+        break;
+      }
+    }
+
+    if (originalFile) {
+      console.log(`Found original: ${originalFile}`);
       try {
-        const result = await cloudinary.uploader.upload(path.join(employeeDir, "original.jpg"), {
+        const result = await cloudinary.uploader.upload(originalFile, {
           folder: 'original',
-          public_id: `${employeeId}_original`
+          public_id: `${employeeId}_original_${Date.now()}`
         });
         updateData.originalFilePath = result.secure_url;
+        console.log(`Uploaded original: ${result.secure_url}`);
       } catch (err) {
         console.error(`Failed to upload original for ${employeeId}:`, err);
       }
+    } else {
+      console.log(`Original file NOT FOUND for ${employeeId}`);
     }
 
-    // Upload Edited
-    if (fs.existsSync(path.join(employeeDir, "edited.jpg"))) {
-      try {
-        const result = await cloudinary.uploader.upload(path.join(employeeDir, "edited.jpg"), {
-          folder: 'edited',
-          public_id: `${employeeId}_edited`
-        });
-        updateData.editedFilePath = result.secure_url;
-      } catch (err) {
-        console.error(`Failed to upload edited for ${employeeId}:`, err);
+    // Find edited file with various extensions
+    const editedExts = ['.jpg', '.jpeg', '.JPG', '.JPEG', '.png', '.PNG'];
+    let editedFile = null;
+    for (const ext of editedExts) {
+      const p = path.join(employeeDir, `edited${ext}`);
+      if (fs.existsSync(p)) {
+        editedFile = p;
+        break;
       }
     }
 
-    await collection.updateOne(
+    if (editedFile) {
+      console.log(`Found edited: ${editedFile}`);
+      try {
+        const result = await cloudinary.uploader.upload(editedFile, {
+          folder: 'edited',
+          public_id: `${employeeId}_edited_${Date.now()}`
+        });
+        updateData.editedFilePath = result.secure_url;
+        console.log(`Uploaded edited: ${result.secure_url}`);
+      } catch (err) {
+        console.error(`Failed to upload edited for ${employeeId}:`, err);
+      }
+    } else {
+      console.log(`Edited file NOT FOUND for ${employeeId}`);
+    }
+
+    const result = await collection.updateOne(
       { employeeId: record.employeeId, originalFileName: record.originalFileName },
       { $set: updateData },
       { upsert: true }
     );
+    console.log(`DB Update result: ${JSON.stringify(result)}`);
   }
 
-  console.log("Cloudinary migration complete!");
+  console.log("\nCloudinary migration complete!");
   process.exit(0);
 }
 
