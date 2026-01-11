@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { AuthProvider, useAuth } from "@/lib/auth-context";
 
 import AuthPage from "@/pages/auth";
+import LandingPage from "@/pages/landing-page";
 import UserDashboard from "@/pages/user-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
 import NotFound from "@/pages/not-found";
@@ -24,10 +25,11 @@ function ProtectedRoute({ component: Component }: { component: React.ComponentTy
 function Router() {
   return (
     <Switch>
+      <Route path="/" component={LandingPage} />
       <Route path="/auth" component={AuthPage} />
       <Route path="/auth/client" component={AuthPage} />
       
-      <Route path="/">
+      <Route path="/dashboard">
         {() => <ProtectedRoute component={UserDashboard} />}
       </Route>
       
