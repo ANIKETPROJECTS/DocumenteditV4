@@ -15,7 +15,6 @@ function isNetlifyDeployment(): boolean {
 function isVercelDeployment(): boolean {
   const host = window.location.host;
   const isVercel = host.includes('vercel.app') || host.includes('vercel.com');
-  console.log('[WebSocket] Host:', host, '| isVercel:', isVercel);
   return isVercel;
 }
 
@@ -27,7 +26,6 @@ function isReplitDeployment(): boolean {
 export function isServerlessDeployment(): boolean {
   const isServerless = isNetlifyDeployment() || isVercelDeployment();
   const isReplit = isReplitDeployment();
-  console.log('[WebSocket] isServerless:', isServerless, '| isReplit:', isReplit);
   // If on Replit, WebSocket works, so it's not serverless
   if (isReplit) return false;
   return isServerless;
@@ -42,10 +40,8 @@ export function useWebSocket(onMessage?: (message: WSMessage) => void, forceRole
 
   const connect = useCallback(() => {
     const serverless = isServerlessDeployment();
-    console.log('[WebSocket] connect() called, isServerless:', serverless);
     
     if (serverless) {
-      console.log('[WebSocket] Skipping WebSocket connection on serverless platform');
       return;
     }
     
@@ -67,7 +63,6 @@ export function useWebSocket(onMessage?: (message: WSMessage) => void, forceRole
     wsRef.current = ws;
 
     ws.onopen = () => {
-      console.log('WebSocket connected');
       setIsConnected(true);
       
       const role = forceRole || user?.role || 'admin';
@@ -83,7 +78,6 @@ export function useWebSocket(onMessage?: (message: WSMessage) => void, forceRole
     ws.onmessage = (event) => {
       try {
         const message: WSMessage = JSON.parse(event.data);
-        console.log('WebSocket message:', message);
         onMessage?.(message);
       } catch (error) {
         console.error('Failed to parse WebSocket message:', error);
@@ -91,7 +85,6 @@ export function useWebSocket(onMessage?: (message: WSMessage) => void, forceRole
     };
 
     ws.onclose = () => {
-      console.log('WebSocket disconnected');
       setIsConnected(false);
       
       if (shouldReconnectRef.current) {
