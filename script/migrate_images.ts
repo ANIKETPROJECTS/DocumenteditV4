@@ -21,14 +21,12 @@ async function migrate() {
   console.log(`Processing ${oldData.length} records...`);
 
   for (const record of oldData) {
-    console.log(`Processing record ${oldData.indexOf(record) + 1}/${oldData.length}: ${record.employeeId}`);
     const employeeId = record.employeeId;
     const employeeDir = path.join(process.cwd(), "images for DB", employeeId);
     
     // Check if already migrated
     const existingDoc = await collection.findOne({ userId: record.userId, employeeId: record.employeeId, originalFileName: record.originalFileName });
     if (existingDoc && (existingDoc.originalFileContent || existingDoc.editedFileContent)) {
-      console.log(`Skipping ${employeeId} - already migrated`);
       continue;
     }
 
@@ -43,7 +41,6 @@ async function migrate() {
     }
 
     if (!originalContent && !editedContent) {
-      console.log(`Skipping ${employeeId} - no images found in ${employeeDir}`);
       // Even if no images, we should at least mark it as processed in DB if it's in old data
       await collection.updateOne(
         { userId: record.userId, employeeId: record.employeeId, originalFileName: record.originalFileName },
@@ -52,6 +49,8 @@ async function migrate() {
       );
       continue;
     }
+    
+    console.log(`Processing record ${oldData.indexOf(record) + 1}/${oldData.length}: ${record.employeeId}`);
 
     const document: any = {
       userId: record.userId,
