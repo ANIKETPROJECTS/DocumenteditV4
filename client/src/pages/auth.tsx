@@ -28,7 +28,7 @@ export default function AuthPage() {
   const onLoginSubmit = async (values: z.infer<typeof loginSchema>) => {
     const success = await login(values.employeeId, values.password);
     if (success) {
-      setLocation("/");
+      setLocation("/dashboard");
     }
   };
 
