@@ -49,6 +49,6 @@ expertMode = true
 [userenv]
 
 [userenv.shared]
-MONGODB_URI = "mongodb://root:ATtech%40132231@168.231.120.239:27017/bg_remover_portal?authSource=admin"
+MONGODB_URI = "mongodb://root:ATtech%40132231@168.231.120.239:27017/bg_remover_portal?authSource=admin&directConnection=true&serverSelectionTimeoutMS=5000"
 GMAIL_APP_PASSWORD = "uszzekqrdvpfvszh"
 GMAIL_USER = "abhijeet18012001@gmail.com"
