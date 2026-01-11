@@ -10,7 +10,10 @@ module.exports = {
         GMAIL_USER: "abhijeet18012001@gmail.com",
         GMAIL_APP_PASSWORD: "uszzekqrdvpfvszh",
         SESSION_SECRET: "your-secret-here",
-        RESEND_API_KEY: "re_..." // Add your Resend API key here
+        RESEND_API_KEY: "re_...",
+        CLOUDINARY_CLOUD_NAME: "dui1jsojt",
+        CLOUDINARY_API_KEY: "788253253163851",
+        CLOUDINARY_API_SECRET: "LGxeOBqys9s1XOEFLJUO7Cuy2nE"
       }
     }
   ]
