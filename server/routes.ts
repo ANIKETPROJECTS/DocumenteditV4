@@ -12,10 +12,18 @@ import * as XLSX from 'xlsx';
 
 const COMMON_PASSWORD = 'duolin';
 
-// Separate multer instances for images and Excel files
+import { v2 as cloudinary } from 'cloudinary';
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: '646536967735165',
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 const imageUpload = multer({ 
   storage: multer.memoryStorage(),
-  limits: { fileSize: 1 * 1024 * 1024 },
+  limits: { fileSize: 10 * 1024 * 1024 }, // Increase limit for Cloudinary
   fileFilter: (req, file, cb) => {
     const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
     if (allowedTypes.includes(file.mimetype)) {
@@ -101,20 +109,24 @@ export async function registerRoutes(
         return res.status(400).json({ message: 'User information is required' });
       }
 
-      // Convert buffer to base64 for cloud storage (works with memory storage)
-      const base64Content = req.file.buffer.toString('base64');
-      const uniqueId = nanoid(10);
-      const ext = path.extname(req.file.originalname);
-      const generatedFilename = `${Date.now()}-${uniqueId}${ext}`;
+      // Upload to Cloudinary
+      const uploadResult = await new Promise((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+          { folder: 'original' },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        );
+        uploadStream.end(req.file!.buffer);
+      }) as any;
 
       const imageRequest = await storage.createImageRequest({
         userId,
         employeeId,
         displayName,
         originalFileName: req.file.originalname,
-        originalFilePath: `uploads/original/${generatedFilename}`,
-        originalFileContent: base64Content,
-        originalContentType: req.file.mimetype,
+        originalFilePath: uploadResult.secure_url,
         status: 'pending',
       });
 
@@ -462,17 +474,21 @@ export async function registerRoutes(
         return res.status(400).json({ message: 'No edited image file provided' });
       }
 
-      // Convert buffer to base64 for cloud storage (works with memory storage)
-      const base64Content = req.file.buffer.toString('base64');
-      const uniqueId = nanoid(10);
-      const ext = path.extname(req.file.originalname);
-      const generatedFilename = `${Date.now()}-${uniqueId}${ext}`;
+      // Upload to Cloudinary
+      const uploadResult = await new Promise((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+          { folder: 'edited' },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+          }
+        );
+        uploadStream.end(req.file!.buffer);
+      }) as any;
 
       const updatedRequest = await storage.updateImageRequest(requestId, {
         editedFileName: req.file.originalname,
-        editedFilePath: `uploads/edited/${generatedFilename}`,
-        editedFileContent: base64Content,
-        editedContentType: req.file.mimetype,
+        editedFilePath: uploadResult.secure_url,
         status: 'completed',
         completedAt: new Date(),
       });

@@ -650,7 +650,7 @@ export default function AdminDashboard() {
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            onClick={() => downloadImage(req.id, 'original')}
+                            onClick={() => window.open(req.originalFilePath, '_blank')}
                             className="bg-white/50 dark:bg-slate-700/50"
                             data-testid={`button-download-original-${req.id}`}
                           >
@@ -661,7 +661,7 @@ export default function AdminDashboard() {
                             <Button 
                               variant="outline" 
                               size="sm" 
-                              onClick={() => downloadImage(req.id, 'edited')}
+                              onClick={() => window.open(req.editedFilePath, '_blank')}
                               className="bg-green-50 text-green-700 hover:bg-green-100 dark:bg-green-900/20 dark:text-green-400 dark:hover:bg-green-900/30 border-green-200 dark:border-green-800"
                               data-testid={`button-download-edited-${req.id}`}
                             >

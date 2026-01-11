@@ -81,16 +81,6 @@ export class MongoStorage implements IStorage {
       uploadedAt: new Date(),
     };
 
-    // Store as Binary (raw format in MongoDB)
-    if (request.originalFileContent) {
-      const base64Data = request.originalFileContent.split(",")[1] || request.originalFileContent;
-      newRequest.originalFileContent = new Binary(Buffer.from(base64Data, "base64"));
-    }
-    if (request.editedFileContent) {
-      const base64Data = request.editedFileContent.split(",")[1] || request.editedFileContent;
-      newRequest.editedFileContent = new Binary(Buffer.from(base64Data, "base64"));
-    }
-
     const result = await db.collection("image_storage").insertOne(newRequest);
     return { ...request, uploadedAt: newRequest.uploadedAt, _id: result.insertedId };
   }
@@ -99,16 +89,6 @@ export class MongoStorage implements IStorage {
     const db = await getDatabase();
     const doc = await db.collection("image_storage").findOne({ _id: new ObjectId(id) }) as any;
     if (!doc) return null;
-
-    // Convert Binary back to base64 for the frontend
-    if (doc.originalFileContent instanceof Binary) {
-      const prefix = doc.originalContentType ? `data:${doc.originalContentType};base64,` : "";
-      doc.originalFileContent = prefix + doc.originalFileContent.buffer.toString("base64");
-    }
-    if (doc.editedFileContent instanceof Binary) {
-      const prefix = doc.editedContentType ? `data:${doc.editedContentType};base64,` : "";
-      doc.editedFileContent = prefix + doc.editedFileContent.buffer.toString("base64");
-    }
 
     return doc as ImageRequest;
   }

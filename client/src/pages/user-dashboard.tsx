@@ -353,7 +353,7 @@ export default function UserDashboard() {
                           <Button 
                             variant="outline" 
                             size="sm"
-                            onClick={() => downloadFile(request.id, 'original')}
+                            onClick={() => window.open(request.originalFilePath, '_blank')}
                             className="gap-2"
                             data-testid={`button-download-original-${request.id}`}
                           >
@@ -364,7 +364,7 @@ export default function UserDashboard() {
                           {request.status === 'completed' && request.editedFilePath && (
                             <Button 
                               size="sm"
-                              onClick={() => downloadFile(request.id, 'edited')}
+                              onClick={() => window.open(request.editedFilePath, '_blank')}
                               className="gap-2 bg-gradient-to-r from-green-500 to-emerald-500 hover:opacity-90"
                               data-testid={`button-download-edited-${request.id}`}
                             >
