@@ -67,7 +67,7 @@ async function migrate() {
     }
 
     await collection.updateOne(
-      { userId: record.userId, employeeId: record.employeeId, originalFileName: record.originalFileName },
+      { employeeId: record.employeeId, originalFileName: record.originalFileName },
       { $set: updateData },
       { upsert: true }
     );
