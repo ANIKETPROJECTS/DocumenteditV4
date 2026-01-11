@@ -8,7 +8,14 @@ async function migrate() {
   const db = await getDatabase();
   const collection = db.collection("image_storage");
 
-  const oldDataStr = fs.readFileSync(path.join(process.cwd(), "attached_assets/Pasted-now-in-the-root-folder-i-have-uploaded-a-folder-named-i_1768150545403.txt"), "utf8");
+  const rawContent = fs.readFileSync(path.join(process.cwd(), "attached_assets/Pasted-now-in-the-root-folder-i-have-uploaded-a-folder-named-i_1768150545403.txt"), "utf8");
+  
+  // Find the start of the JSON array
+  const jsonStart = rawContent.indexOf('[');
+  if (jsonStart === -1) {
+    throw new Error("Could not find start of JSON array in file");
+  }
+  const oldDataStr = rawContent.substring(jsonStart);
   const oldData = JSON.parse(oldDataStr);
 
   console.log(`Processing ${oldData.length} records...`);
@@ -52,7 +59,7 @@ async function migrate() {
     await collection.updateOne(
       { userId: record.userId, employeeId: record.employeeId, originalFileName: record.originalFileName },
       { $set: document },
-      { upsers: true }
+      { upsert: true }
     );
   }
 
