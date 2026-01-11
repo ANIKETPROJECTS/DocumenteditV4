@@ -14,8 +14,13 @@ let cachedClient: MongoClient | null = null;
 let cachedDb: any = null;
 
 async function connectToDatabase() {
-  if (cachedClient) {
-    return cachedClient;
+  // Logic merged into getDatabase for better serverless reliability
+  return await getDatabase();
+}
+
+async function getDatabase() {
+  if (cachedDb) {
+    return cachedDb;
   }
 
   const uri = process.env.MONGODB_URI;
@@ -23,22 +28,26 @@ async function connectToDatabase() {
     throw new Error("MONGODB_URI environment variable is not set");
   }
 
-  const client = new MongoClient(uri, {
-    connectTimeoutMS: 30000,
-    socketTimeoutMS: 45000,
-    maxPoolSize: 10,
-    retryWrites: true,
-  });
-  await client.connect();
-  cachedClient = client;
-  return client;
-}
-
-async function getDatabase() {
-  if (cachedDb) return cachedDb;
-  const client = await connectToDatabase();
-  cachedDb = client.db("bg_remover_portal");
-  return cachedDb;
+  try {
+    if (!cachedClient) {
+      cachedClient = new MongoClient(uri, {
+        connectTimeoutMS: 30000,
+        socketTimeoutMS: 45000,
+        maxPoolSize: 10,
+        retryWrites: true,
+        // Authentication options explicitly for serverless
+        authSource: "admin",
+      });
+      await cachedClient.connect();
+    }
+    cachedDb = cachedClient.db("bg_remover_portal");
+    return cachedDb;
+  } catch (error) {
+    console.error("MongoDB connection error:", error);
+    cachedClient = null;
+    cachedDb = null;
+    throw error;
+  }
 }
 
 interface Employee {
