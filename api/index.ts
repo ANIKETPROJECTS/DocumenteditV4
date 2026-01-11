@@ -11,6 +11,8 @@ app.use(express.urlencoded({ extended: false }));
 
 let cachedClient: MongoClient | null = null;
 
+let cachedDb: any = null;
+
 async function connectToDatabase() {
   if (cachedClient) {
     return cachedClient;
@@ -21,15 +23,22 @@ async function connectToDatabase() {
     throw new Error("MONGODB_URI environment variable is not set");
   }
 
-  const client = new MongoClient(uri);
+  const client = new MongoClient(uri, {
+    connectTimeoutMS: 30000,
+    socketTimeoutMS: 45000,
+    maxPoolSize: 10,
+    retryWrites: true,
+  });
   await client.connect();
   cachedClient = client;
   return client;
 }
 
 async function getDatabase() {
+  if (cachedDb) return cachedDb;
   const client = await connectToDatabase();
-  return client.db("bg_remover_portal");
+  cachedDb = client.db("bg_remover_portal");
+  return cachedDb;
 }
 
 interface Employee {

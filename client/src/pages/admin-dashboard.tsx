@@ -80,8 +80,14 @@ export default function AdminDashboard() {
 
   const fetchRequests = useCallback(async (page = 1) => {
     setIsLoading(true);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
+
     try {
-      const response = await fetch(`/api/admin/requests?page=${page}&limit=5`);
+      const response = await fetch(`/api/admin/requests?page=${page}&limit=5`, {
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
       const data = await response.json();
       
       if (response.ok) {
@@ -93,11 +99,19 @@ export default function AdminDashboard() {
         throw new Error(data.message || 'Failed to fetch requests');
       }
     } catch (error: any) {
-      toast({
-        title: "Error",
-        description: error.message || 'Failed to fetch requests',
-        variant: "destructive",
-      });
+      if (error.name === 'AbortError') {
+        toast({
+          title: "Timeout",
+          description: "Fetching requests took too long. Please try again.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: error.message || 'Failed to fetch requests',
+          variant: "destructive",
+        });
+      }
     } finally {
       setIsLoading(false);
     }
