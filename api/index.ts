@@ -361,12 +361,14 @@ app.get("/api/admin/requests", async (req, res) => {
     const limit = parseInt(req.query.limit as string) || 5;
     const skip = (page - 1) * limit;
 
-    log(`Fetching admin requests: page=${page}, limit=${limit}`, "api");
+    log(`API_START: Fetching requests page=${page}, limit=${limit}`, "admin-api");
 
     const db = await getDatabase();
-    
-    // Use projection to avoid fetching large binary data (originalFileContent, editedFileContent)
+    log("API_DB: Database connected", "admin-api");
+
     const total = await db.collection("image_requests").countDocuments();
+    log(`API_DB: Total documents count=${total}`, "admin-api");
+
     const requests = await db
       .collection("image_requests")
       .find({}, {
@@ -380,9 +382,9 @@ app.get("/api/admin/requests", async (req, res) => {
       .limit(limit)
       .toArray() as any[];
 
-    log(`Fetched ${requests.length} requests out of ${total} total`, "api");
+    log(`API_DB: Records fetched count=${requests.length}`, "admin-api");
 
-    res.json({
+    const responseData = {
       requests: requests.map((r) => ({
         id: r._id?.toString(),
         userId: r.userId,
@@ -397,15 +399,22 @@ app.get("/api/admin/requests", async (req, res) => {
         completedAt: r.completedAt,
       })),
       pagination: {
-        total,
-        page,
-        limit,
-        totalPages: Math.ceil(total / limit)
+        total: total || 0,
+        page: page || 1,
+        limit: limit || 5,
+        totalPages: Math.ceil((total || 0) / (limit || 5))
       }
-    });
+    };
+
+    log("API_SUCCESS: Sending response", "admin-api");
+    res.json(responseData);
   } catch (error: any) {
-    log(`Error fetching all requests: ${error.message}`, "error");
-    res.status(500).json({ message: "Failed to fetch requests", error: error.message });
+    log(`API_ERROR: ${error.stack || error.message}`, "admin-api");
+    res.status(500).json({ 
+      message: "Failed to fetch requests", 
+      error: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+    });
   }
 });
 
