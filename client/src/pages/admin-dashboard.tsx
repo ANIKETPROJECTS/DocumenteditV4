@@ -1,0 +1,766 @@
+import { useState, useEffect, useCallback } from "react";
+import { Download, Upload, Search, RefreshCw, Wifi, WifiOff, Image, Clock, CheckCircle, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { useToast } from "@/hooks/use-toast";
+import { useDropzone } from "react-dropzone";
+import { useWebSocket, WSMessage } from "@/hooks/use-websocket";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+
+interface ImageRequest {
+  id: string;
+  userId: string;
+  employeeId: string;
+  displayName: string;
+  originalFileName: string;
+  originalFilePath: string;
+  editedFileName?: string;
+  editedFilePath?: string;
+  status: 'pending' | 'completed';
+  uploadedAt: string;
+  completedAt?: string;
+}
+
+export default function AdminDashboard() {
+  const { toast } = useToast();
+  const [requests, setRequests] = useState<ImageRequest[]>([]);
+  const [selectedRequest, setSelectedRequest] = useState<ImageRequest | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isUploading, setIsUploading] = useState(false);
+
+  const handleWebSocketMessage = useCallback((message: WSMessage) => {
+    if (message.type === 'new_image_upload') {
+      const newRequest = message.data;
+      setRequests(prev => {
+        const exists = prev.some(req => String(req.id) === String(newRequest.id));
+        if (exists) return prev;
+        return [...prev, {
+          id: String(newRequest.id),
+          userId: String(newRequest.userId),
+          employeeId: String(newRequest.employeeId),
+          displayName: newRequest.displayName,
+          originalFileName: newRequest.originalFileName,
+          originalFilePath: newRequest.originalFilePath,
+          status: 'pending' as const,
+          uploadedAt: newRequest.uploadedAt,
+        }];
+      });
+      toast({
+        title: "New Image Upload",
+        description: `${newRequest.displayName} uploaded "${newRequest.originalFileName}"`,
+      });
+    } else if (message.type === 'image_edited') {
+      const editedRequest = message.data;
+      setRequests(prev => prev.map(req => 
+        String(req.id) === String(editedRequest.id) 
+          ? { 
+              ...req, 
+              status: 'completed' as const, 
+              editedFileName: editedRequest.editedFileName, 
+              editedFilePath: editedRequest.editedFilePath, 
+              completedAt: editedRequest.completedAt 
+            }
+          : req
+      ));
+      toast({
+        title: "Image Edited",
+        description: `Request for "${editedRequest.originalFileName}" has been completed`,
+      });
+    }
+  }, [toast]);
+
+  const { isConnected, isServerless } = useWebSocket(handleWebSocketMessage, 'admin');
+
+  const fetchRequests = useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/admin/requests');
+      const data = await response.json();
+      
+      if (response.ok) {
+        setRequests(data.requests || []);
+      } else {
+        throw new Error(data.message || 'Failed to fetch requests');
+      }
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || 'Failed to fetch requests',
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  }, [toast]);
+
+  const exportEmployees = async () => {
+    try {
+      const response = await fetch('/api/admin/employees/export');
+      if (!response.ok) throw new Error('Export failed');
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'employees.xlsx';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      
+      toast({
+        title: "Success",
+        description: "Employee data exported to Excel",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Export Failed",
+        description: error.message || 'Failed to export employees',
+        variant: "destructive",
+      });
+    }
+  };
+
+  const importEmployees = async (file: File) => {
+    console.log(`[Import] Starting employee import: ${file.name} (${file.size} bytes)`);
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('/api/admin/employees/import', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      console.log('[Import] Server response:', data);
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Import failed');
+      }
+
+      console.log(`[Import] Success: Imported ${data.importedCount} employees, skipped ${data.skippedCount}`);
+      toast({
+        title: "Import Success",
+        description: `Imported: ${data.importedCount}, Skipped: ${data.skippedCount}. Check console for details.`,
+      });
+      fetchRequests();
+    } catch (error: any) {
+      console.error('[Import] Error:', error);
+      toast({
+        title: "Import Failed",
+        description: error.message || 'Failed to import employees',
+        variant: "destructive",
+      });
+    }
+  };
+
+  const exportRequests = async () => {
+    try {
+      const response = await fetch('/api/admin/requests/export-file');
+      if (!response.ok) throw new Error('Export failed');
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'image_requests_export.xlsx';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      
+      toast({
+        title: "Success",
+        description: "Image requests exported to Excel",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Export Failed",
+        description: error.message || 'Failed to export image requests',
+        variant: "destructive",
+      });
+    }
+  };
+
+  const exportUsers = async () => {
+    try {
+      const response = await fetch('/api/admin/users/export');
+      if (!response.ok) throw new Error('Export failed');
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'users.xlsx';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      
+      toast({
+        title: "Success",
+        description: "User data exported to Excel",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Export Failed",
+        description: error.message || 'Failed to export users',
+        variant: "destructive",
+      });
+    }
+  };
+
+  const importUsers = async (file: File) => {
+    console.log(`[Import] Starting user import: ${file.name} (${file.size} bytes)`);
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('/api/admin/users/import', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      console.log('[Import] Server response:', data);
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Import failed');
+      }
+
+      console.log(`[Import] Success: Imported ${data.importedCount} users, skipped ${data.skippedCount}`);
+      toast({
+        title: "Import Success",
+        description: `Imported: ${data.importedCount}, Skipped: ${data.skippedCount}. Check console for details.`,
+      });
+      fetchRequests();
+    } catch (error: any) {
+      console.error('[Import] Error:', error);
+      toast({
+        title: "Import Failed",
+        description: error.message || 'Failed to import users',
+        variant: "destructive",
+      });
+    }
+  };
+
+  useEffect(() => {
+    fetchRequests();
+  }, [fetchRequests]);
+
+  // Polling fallback removed to respect user preference for manual refresh
+  /* 
+  useEffect(() => {
+    if (!isServerless) return;
+    
+    const pollInterval = setInterval(() => {
+      fetchRequests();
+    }, 15000); // Poll every 15 seconds
+    
+    return () => clearInterval(pollInterval);
+  }, [isServerless, fetchRequests]);
+  */
+
+  const filteredRequests = requests.filter(req => 
+    req.displayName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    req.employeeId?.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const pendingCount = requests.filter(r => r.status === 'pending').length;
+  const completedCount = requests.filter(r => r.status === 'completed').length;
+  const uniqueUsers = new Set(requests.map(r => r.userId)).size;
+
+  const onDrop = async (acceptedFiles: File[]) => {
+    if (acceptedFiles.length === 0 || !selectedRequest) return;
+
+    setIsUploading(true);
+    
+    const formData = new FormData();
+    formData.append('editedImage', acceptedFiles[0]);
+
+    try {
+      const response = await fetch(`/api/admin/upload-edited/${selectedRequest.id}`, {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Upload failed');
+      }
+
+      toast({
+        title: "Success",
+        description: "Edited image uploaded successfully",
+      });
+
+      await fetchRequests();
+      setSelectedRequest(null);
+    } catch (error: any) {
+      toast({
+        title: "Upload Failed",
+        description: error.message || 'Failed to upload edited image',
+        variant: "destructive",
+      });
+    } finally {
+      setIsUploading(false);
+    }
+  };
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { 'image/*': [] },
+    maxFiles: 1,
+    disabled: isUploading,
+  });
+
+  const downloadImage = async (requestId: string, type: 'original' | 'edited') => {
+    try {
+      const response = await fetch(`/api/images/download-by-id/${requestId}/${type}`);
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Download failed');
+      }
+      
+      const blob = await response.blob();
+      const contentDisposition = response.headers.get('Content-Disposition');
+      let filename = `${type}-image`;
+      
+      if (contentDisposition) {
+        const match = contentDisposition.match(/filename="?([^"]+)"?/);
+        if (match) {
+          filename = match[1];
+        }
+      }
+      
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error: any) {
+      toast({
+        title: "Download Failed",
+        description: error.message || 'Failed to download image',
+        variant: "destructive",
+      });
+    }
+  };
+
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map(n => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
+      <header className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white sticky top-0 z-50 shadow-lg">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md">
+              <Image className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <span className="font-bold text-lg">Admin Portal</span>
+              <p className="text-xs text-slate-400 hidden sm:block">Background Removal System</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <div 
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/50" 
+              title={isServerless ? 'Auto-refresh every 15s' : (isConnected ? 'Real-time updates active' : 'Reconnecting...')}
+            >
+              {isServerless ? (
+                <>
+                  <RefreshCw className="h-3.5 w-3.5 text-blue-400" />
+                  <span className="text-xs text-blue-400 hidden sm:inline">Auto-refresh</span>
+                </>
+              ) : isConnected ? (
+                <>
+                  <Wifi className="h-3.5 w-3.5 text-green-400" />
+                  <span className="text-xs text-green-400 hidden sm:inline">Live</span>
+                </>
+              ) : (
+                <>
+                  <WifiOff className="h-3.5 w-3.5 text-slate-400 animate-pulse" />
+                  <span className="text-xs text-slate-400 hidden sm:inline">Connecting...</span>
+                </>
+              )}
+            </div>
+            
+            <div className="hidden md:flex items-center gap-3 px-3 py-1.5 rounded-lg bg-slate-800/30">
+              <Avatar className="h-8 w-8 border-2 border-indigo-400/50">
+                <AvatarFallback className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white text-xs font-medium">
+                  AD
+                </AvatarFallback>
+              </Avatar>
+              <div className="text-right">
+                <p className="text-sm font-medium">Admin</p>
+                <p className="text-xs text-indigo-300">Administrator</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur border-0 shadow-md overflow-visible">
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between gap-2">
+                <div>
+                  <p className="text-sm text-muted-foreground">Total Requests</p>
+                  <p className="text-2xl font-bold text-foreground" data-testid="text-total-requests">{requests.length}</p>
+                </div>
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg">
+                  <Image className="h-6 w-6 text-white" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur border-0 shadow-md overflow-visible">
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between gap-2">
+                <div>
+                  <p className="text-sm text-muted-foreground">Pending</p>
+                  <p className="text-2xl font-bold text-amber-600" data-testid="text-pending-count">{pendingCount}</p>
+                </div>
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
+                  <Clock className="h-6 w-6 text-white" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur border-0 shadow-md overflow-visible">
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between gap-2">
+                <div>
+                  <p className="text-sm text-muted-foreground">Completed</p>
+                  <p className="text-2xl font-bold text-green-600" data-testid="text-completed-count">{completedCount}</p>
+                </div>
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center shadow-lg">
+                  <CheckCircle className="h-6 w-6 text-white" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur border-0 shadow-md overflow-visible">
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between gap-2">
+                <div>
+                  <p className="text-sm text-muted-foreground">Unique Users</p>
+                  <p className="text-2xl font-bold text-indigo-600" data-testid="text-unique-users">{uniqueUsers}</p>
+                </div>
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-indigo-400 to-purple-600 flex items-center justify-center shadow-lg">
+                  <Users className="h-6 w-6 text-white" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-foreground">User Requests</h1>
+            <p className="text-muted-foreground">Manage and process background removal requests</p>
+          </div>
+          <div className="flex gap-2 w-full md:w-auto">
+            <div className="flex gap-2">
+              <div className="relative">
+                <input
+                  type="file"
+                  key={`emp-import-${Date.now()}`}
+                  accept=".xlsx, .xls"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    console.log("[Import] Employee file selected:", file?.name);
+                    if (file) {
+                      importEmployees(file);
+                      e.target.value = ''; // Reset input
+                    }
+                  }}
+                />
+                <Button variant="outline" size="sm" className="bg-white/80 dark:bg-slate-800/80 backdrop-blur whitespace-nowrap">
+                  <Upload className="h-4 w-4 mr-1" />
+                  Import Emp
+                </Button>
+              </div>
+              <Button variant="outline" size="sm" onClick={exportEmployees} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur whitespace-nowrap">
+                <Download className="h-4 w-4 mr-1" />
+                Export Emp
+              </Button>
+            </div>
+
+            <div className="flex gap-2">
+              <div className="relative">
+                <input
+                  type="file"
+                  key={`user-import-${Date.now()}`}
+                  accept=".xlsx, .xls"
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    console.log("[Import] User file selected:", file?.name);
+                    if (file) {
+                      importUsers(file);
+                      e.target.value = ''; // Reset input
+                    }
+                  }}
+                />
+                <Button variant="outline" size="sm" className="bg-white/80 dark:bg-slate-800/80 backdrop-blur whitespace-nowrap">
+                  <Upload className="h-4 w-4 mr-1" />
+                  Import Users
+                </Button>
+              </div>
+              <Button variant="outline" size="sm" onClick={exportUsers} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur whitespace-nowrap">
+                <Download className="h-4 w-4 mr-1" />
+                Export Users
+              </Button>
+            </div>
+
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={exportRequests} 
+              className="bg-white/80 dark:bg-slate-800/80 backdrop-blur whitespace-nowrap"
+            >
+              <Download className="h-4 w-4 mr-1" />
+              Export Req
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={fetchRequests} 
+              disabled={isLoading} 
+              className="bg-white/80 dark:bg-slate-800/80 backdrop-blur" 
+              data-testid="button-refresh"
+            >
+              <RefreshCw className={`h-4 w-4 mr-1 ${isLoading ? 'animate-spin' : ''}`} />
+              Refresh
+            </Button>
+            <div className="relative w-full md:w-64">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input 
+                placeholder="Search users..." 
+                className="pl-10 bg-white/80 dark:bg-slate-800/80 backdrop-blur border-0 shadow-sm"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                data-testid="input-search"
+              />
+            </div>
+          </div>
+        </div>
+
+        <Card className="bg-white/80 dark:bg-slate-800/80 backdrop-blur border-0 shadow-lg overflow-hidden">
+          <CardContent className="p-0">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-slate-50/80 dark:bg-slate-700/50 hover:bg-slate-50/80 dark:hover:bg-slate-700/50">
+                  <TableHead className="font-semibold">User</TableHead>
+                  <TableHead className="font-semibold">File</TableHead>
+                  <TableHead className="font-semibold">Date</TableHead>
+                  <TableHead className="font-semibold">Status</TableHead>
+                  <TableHead className="text-right font-semibold">Actions</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {isLoading ? (
+                  <TableRow>
+                    <TableCell colSpan={5} className="text-center py-12">
+                      <RefreshCw className="h-8 w-8 animate-spin mx-auto text-indigo-500" />
+                      <p className="mt-3 text-muted-foreground">Loading requests...</p>
+                    </TableCell>
+                  </TableRow>
+                ) : filteredRequests.length === 0 ? (
+                  <TableRow>
+                    <TableCell colSpan={5} className="text-center py-12">
+                      <div className="h-16 w-16 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center mx-auto mb-4">
+                        <Image className="h-8 w-8 text-muted-foreground" />
+                      </div>
+                      <p className="text-muted-foreground">No requests found</p>
+                    </TableCell>
+                  </TableRow>
+                ) : (
+                  filteredRequests.map((req) => (
+                    <TableRow 
+                      key={req.id} 
+                      className="hover:bg-slate-50/50 dark:hover:bg-slate-700/30 transition-colors"
+                      data-testid={`row-request-${req.id}`}
+                    >
+                      <TableCell>
+                        <div className="flex items-center gap-3">
+                          <Avatar className="h-9 w-9 border border-slate-200 dark:border-slate-600">
+                            <AvatarFallback className="bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-600 dark:to-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium">
+                              {req.displayName ? getInitials(req.displayName) : 'U'}
+                            </AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <p className="font-medium text-foreground">{req.displayName}</p>
+                            <p className="text-xs text-muted-foreground">ID: {req.employeeId}</p>
+                          </div>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <p className="text-sm text-muted-foreground truncate max-w-[200px]" title={req.originalFileName}>
+                          {req.originalFileName}
+                        </p>
+                      </TableCell>
+                      <TableCell className="text-sm text-muted-foreground">
+                        {new Date(req.uploadedAt).toLocaleDateString()}
+                      </TableCell>
+                      <TableCell>
+                        <Badge 
+                          variant={req.status === 'completed' ? 'default' : 'secondary'}
+                          className={req.status === 'completed' 
+                            ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 border-0' 
+                            : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 border-0'
+                          }
+                          data-testid={`badge-status-${req.id}`}
+                        >
+                          {req.status === 'completed' ? (
+                            <><CheckCircle className="h-3 w-3 mr-1" /> Completed</>
+                          ) : (
+                            <><Clock className="h-3 w-3 mr-1" /> Pending</>
+                          )}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <div className="flex justify-end gap-2 flex-wrap">
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            onClick={() => downloadImage(req.id, 'original')}
+                            className="bg-white/50 dark:bg-slate-700/50"
+                            data-testid={`button-download-original-${req.id}`}
+                          >
+                            <Download className="h-4 w-4 mr-1.5" />
+                            Original
+                          </Button>
+                          {req.status === 'completed' && req.editedFilePath && (
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              onClick={() => downloadImage(req.id, 'edited')}
+                              className="bg-green-50 text-green-700 hover:bg-green-100 dark:bg-green-900/20 dark:text-green-400 dark:hover:bg-green-900/30 border-green-200 dark:border-green-800"
+                              data-testid={`button-download-edited-${req.id}`}
+                            >
+                              <Download className="h-4 w-4 mr-1.5" />
+                              Edited
+                            </Button>
+                          )}
+                          {req.status === 'pending' && (
+                            <Button 
+                              size="sm" 
+                              onClick={() => setSelectedRequest(req)}
+                              className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white shadow-md"
+                              data-testid={`button-upload-edit-${req.id}`}
+                            >
+                              <Upload className="h-4 w-4 mr-1.5" />
+                              Upload Edit
+                            </Button>
+                          )}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      </main>
+
+      <Dialog open={!!selectedRequest} onOpenChange={(open) => !open && setSelectedRequest(null)}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2">
+              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                <Upload className="h-4 w-4 text-white" />
+              </div>
+              Upload Edited Image
+            </DialogTitle>
+          </DialogHeader>
+          <div className="py-4 space-y-4">
+            <Card className="bg-slate-50 dark:bg-slate-800/50 border-0">
+              <CardContent className="p-4 space-y-2">
+                <div className="flex items-center gap-3">
+                  <Avatar className="h-10 w-10">
+                    <AvatarFallback className="bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-600 dark:to-slate-700 text-sm">
+                      {selectedRequest?.displayName ? getInitials(selectedRequest.displayName) : 'U'}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-medium">{selectedRequest?.displayName}</p>
+                    <p className="text-xs text-muted-foreground">ID: {selectedRequest?.employeeId}</p>
+                  </div>
+                </div>
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
+                  <p className="text-xs text-muted-foreground">Original File</p>
+                  <p className="text-sm font-medium truncate">{selectedRequest?.originalFileName}</p>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <div 
+              {...getRootProps()}
+              className={`p-8 border-2 border-dashed rounded-xl text-center space-y-3 cursor-pointer transition-all
+                ${isDragActive 
+                  ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20' 
+                  : 'border-slate-300 dark:border-slate-600 hover:border-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                }
+                ${isUploading ? 'opacity-50 pointer-events-none' : ''}
+              `}
+              data-testid="dropzone-edited"
+            >
+              <input {...getInputProps()} />
+              {isUploading ? (
+                <>
+                  <div className="h-14 w-14 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mx-auto">
+                    <RefreshCw className="h-7 w-7 text-indigo-600 dark:text-indigo-400 animate-spin" />
+                  </div>
+                  <p className="text-sm font-medium">Uploading...</p>
+                </>
+              ) : (
+                <>
+                  <div className="h-14 w-14 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mx-auto">
+                    <Upload className="h-7 w-7 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">Click or drag to upload</p>
+                    <p className="text-xs text-muted-foreground">PNG or JPG with transparent background</p>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setSelectedRequest(null)} data-testid="button-cancel-upload">
+              Cancel
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}

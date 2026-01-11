@@ -1,0 +1,293 @@
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+ WebSocket disconnected
+ WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+ WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: WebSocket is closed before the connection is established.
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+/api/images/upload:1  Failed to load resource: the server responded with a status of 404 ()
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event {isTrusted: true, type: 'error', target: WebSocket, currentTarget: WebSocket, eventPhase: 2, …}
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
+index-Cluwif6x.js:263 WebSocket connection to 'wss://docediting.netlify.app/ws' failed: 
+(anonymous) @ index-Cluwif6x.js:263
+(anonymous) @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket error: Event {isTrusted: true, type: 'error', target: WebSocket, currentTarget: WebSocket, eventPhase: 2, …}
+g.onerror @ index-Cluwif6x.js:263
+index-Cluwif6x.js:263 WebSocket disconnected
