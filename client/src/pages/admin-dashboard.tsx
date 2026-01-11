@@ -76,14 +76,19 @@ export default function AdminDashboard() {
 
   const { isConnected, isServerless } = useWebSocket(handleWebSocketMessage, 'admin');
 
-  const fetchRequests = useCallback(async () => {
+  const [pagination, setPagination] = useState({ page: 1, limit: 5, total: 0, totalPages: 0 });
+
+  const fetchRequests = useCallback(async (page = 1) => {
     setIsLoading(true);
     try {
-      const response = await fetch('/api/admin/requests');
+      const response = await fetch(`/api/admin/requests?page=${page}&limit=5`);
       const data = await response.json();
       
       if (response.ok) {
         setRequests(data.requests || []);
+        if (data.pagination) {
+          setPagination(data.pagination);
+        }
       } else {
         throw new Error(data.message || 'Failed to fetch requests');
       }
@@ -149,7 +154,7 @@ export default function AdminDashboard() {
         title: "Import Success",
         description: `Imported: ${data.importedCount}, Skipped: ${data.skippedCount}. Check console for details.`,
       });
-      fetchRequests();
+      fetchRequests(pagination.page);
     } catch (error: any) {
       console.error('[Import] Error:', error);
       toast({
@@ -239,7 +244,7 @@ export default function AdminDashboard() {
         title: "Import Success",
         description: `Imported: ${data.importedCount}, Skipped: ${data.skippedCount}. Check console for details.`,
       });
-      fetchRequests();
+      fetchRequests(pagination.page);
     } catch (error: any) {
       console.error('[Import] Error:', error);
       toast({
@@ -251,21 +256,8 @@ export default function AdminDashboard() {
   };
 
   useEffect(() => {
-    fetchRequests();
-  }, [fetchRequests]);
-
-  // Polling fallback removed to respect user preference for manual refresh
-  /* 
-  useEffect(() => {
-    if (!isServerless) return;
-    
-    const pollInterval = setInterval(() => {
-      fetchRequests();
-    }, 15000); // Poll every 15 seconds
-    
-    return () => clearInterval(pollInterval);
-  }, [isServerless, fetchRequests]);
-  */
+    fetchRequests(pagination.page);
+  }, [fetchRequests, pagination.page]);
 
   const filteredRequests = requests.filter(req => 
     req.displayName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -301,7 +293,7 @@ export default function AdminDashboard() {
         description: "Edited image uploaded successfully",
       });
 
-      await fetchRequests();
+      await fetchRequests(pagination.page);
       setSelectedRequest(null);
     } catch (error: any) {
       toast({
@@ -551,7 +543,7 @@ export default function AdminDashboard() {
             <Button 
               variant="outline" 
               size="sm"
-              onClick={fetchRequests} 
+              onClick={() => fetchRequests(pagination.page)} 
               disabled={isLoading} 
               className="bg-white/80 dark:bg-slate-800/80 backdrop-blur" 
               data-testid="button-refresh"
@@ -689,6 +681,30 @@ export default function AdminDashboard() {
             </Table>
           </CardContent>
         </Card>
+
+        {pagination.totalPages > 1 && (
+          <div className="flex justify-center items-center gap-4 mt-6">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setPagination(prev => ({ ...prev, page: Math.max(1, prev.page - 1) }))}
+              disabled={pagination.page === 1 || isLoading}
+            >
+              Previous
+            </Button>
+            <span className="text-sm font-medium">
+              Page {pagination.page} of {pagination.totalPages}
+            </span>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setPagination(prev => ({ ...prev, page: Math.min(pagination.totalPages, prev.page + 1) }))}
+              disabled={pagination.page === pagination.totalPages || isLoading}
+            >
+              Next
+            </Button>
+          </div>
+        )}
       </main>
 
       <Dialog open={!!selectedRequest} onOpenChange={(open) => !open && setSelectedRequest(null)}>

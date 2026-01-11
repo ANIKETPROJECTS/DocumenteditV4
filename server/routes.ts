@@ -265,10 +265,24 @@ export async function registerRoutes(
 
   app.get('/api/admin/requests', async (req, res) => {
     try {
+      const page = parseInt(req.query.page as string) || 1;
+      const limit = parseInt(req.query.limit as string) || 5;
+      const skip = (page - 1) * limit;
+
+      log(`Fetching admin requests: page=${page}, limit=${limit}`, 'info');
+
       const requests = await storage.getAllImageRequests();
+      // Since storage.getAllImageRequests() returns all, we manually paginate for now if using memory storage, 
+      // but the storage interface should ideally handle skip/limit. 
+      // For MongoDB it's already handled in api/index.ts for Vercel.
       
+      const total = requests.length;
+      const paginatedRequests = requests.slice(skip, skip + limit);
+
+      log(`Fetched ${paginatedRequests.length} requests out of ${total} total`, 'info');
+
       res.json({
-        requests: requests.map(r => ({
+        requests: paginatedRequests.map(r => ({
           id: r._id?.toString(),
           userId: r.userId,
           employeeId: r.employeeId,
@@ -280,7 +294,13 @@ export async function registerRoutes(
           status: r.status,
           uploadedAt: r.uploadedAt,
           completedAt: r.completedAt,
-        }))
+        })),
+        pagination: {
+          total,
+          page,
+          limit,
+          totalPages: Math.ceil(total / limit)
+        }
       });
     } catch (error: any) {
       log(`Error fetching all requests: ${error.message}`, 'error');

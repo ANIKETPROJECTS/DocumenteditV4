@@ -348,12 +348,23 @@ app.get("/api/images/download-by-id/:requestId/:type", async (req, res) => {
 
 app.get("/api/admin/requests", async (req, res) => {
   try {
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 5;
+    const skip = (page - 1) * limit;
+
+    log(`Fetching admin requests: page=${page}, limit=${limit}`, "api");
+
     const db = await getDatabase();
+    const total = await db.collection("image_requests").countDocuments();
     const requests = await db
       .collection<ImageRequest>("image_requests")
       .find({})
       .sort({ uploadedAt: -1 })
+      .skip(skip)
+      .limit(limit)
       .toArray();
+
+    log(`Fetched ${requests.length} requests out of ${total} total`, "api");
 
     res.json({
       requests: requests.map((r) => ({
@@ -369,6 +380,12 @@ app.get("/api/admin/requests", async (req, res) => {
         uploadedAt: r.uploadedAt,
         completedAt: r.completedAt,
       })),
+      pagination: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit)
+      }
     });
   } catch (error: any) {
     log(`Error fetching all requests: ${error.message}`, "error");
