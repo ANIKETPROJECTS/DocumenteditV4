@@ -27,6 +27,7 @@ async function migrate() {
     // Check if already migrated
     const existingDoc = await collection.findOne({ userId: record.userId, employeeId: record.employeeId, originalFileName: record.originalFileName });
     if (existingDoc && (existingDoc.originalFileContent || existingDoc.editedFileContent)) {
+      console.log(`Skipping record ${oldData.indexOf(record) + 1}/${oldData.length}: ${employeeId} - already migrated`);
       continue;
     }
 
@@ -41,7 +42,7 @@ async function migrate() {
     }
 
     if (!originalContent && !editedContent) {
-      // Even if no images, we should at least mark it as processed in DB if it's in old data
+      console.log(`Skipping record ${oldData.indexOf(record) + 1}/${oldData.length}: ${employeeId} - no images found in ${employeeDir}`);
       await collection.updateOne(
         { userId: record.userId, employeeId: record.employeeId, originalFileName: record.originalFileName },
         { $set: { migratedAt: new Date(), ...record } },
@@ -49,8 +50,8 @@ async function migrate() {
       );
       continue;
     }
-    
-    console.log(`Processing record ${oldData.indexOf(record) + 1}/${oldData.length}: ${record.employeeId}`);
+
+    console.log(`Processing record ${oldData.indexOf(record) + 1}/${oldData.length}: ${employeeId}`);
 
     const document: any = {
       userId: record.userId,
