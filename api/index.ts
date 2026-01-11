@@ -355,10 +355,17 @@ app.get("/api/admin/requests", async (req, res) => {
     log(`Fetching admin requests: page=${page}, limit=${limit}`, "api");
 
     const db = await getDatabase();
+    
+    // Use projection to avoid fetching large binary data (originalFileContent, editedFileContent)
     const total = await db.collection("image_requests").countDocuments();
     const requests = await db
       .collection<ImageRequest>("image_requests")
-      .find({})
+      .find({}, {
+        projection: {
+          originalFileContent: 0,
+          editedFileContent: 0
+        }
+      })
       .sort({ uploadedAt: -1 })
       .skip(skip)
       .limit(limit)
@@ -389,7 +396,7 @@ app.get("/api/admin/requests", async (req, res) => {
     });
   } catch (error: any) {
     log(`Error fetching all requests: ${error.message}`, "error");
-    res.status(500).json({ message: "Failed to fetch requests" });
+    res.status(500).json({ message: "Failed to fetch requests", error: error.message });
   }
 });
 
