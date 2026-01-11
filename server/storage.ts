@@ -81,7 +81,7 @@ export class MongoStorage implements IStorage {
       uploadedAt: new Date(),
     };
 
-    // Convert base64 to Binary for storage efficiency
+    // Store as Binary (raw format in MongoDB)
     if (request.originalFileContent) {
       const base64Data = request.originalFileContent.split(",")[1] || request.originalFileContent;
       newRequest.originalFileContent = new Binary(Buffer.from(base64Data, "base64"));
