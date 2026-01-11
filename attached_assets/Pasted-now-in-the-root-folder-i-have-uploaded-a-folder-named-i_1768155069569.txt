@@ -1,0 +1,2102 @@
+now in the root folder i have uploaded a folder named images for DB in that according to employee id now in DB the collection name that stores it is named image_requests but since we have shifted to storing the image directly can you use diffrient collection and append data with old data that i am providing only with link. make sure the image is stored directly in raw format no big strings for the image.
+
+
+[
+  {
+    "_id": {
+      "$oid": "6957b6abab1c4e894f871373"
+    },
+    "userId": "6957b68bab1c4e894f871371",
+    "employeeId": "171755",
+    "displayName": "Mukul Kumar Singh",
+    "originalFileName": "IMG_20251221_221443.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T12:14:35.421Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:12:46.040Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957b6b1ab1c4e894f871376"
+    },
+    "userId": "6957b611ab1c4e894f87136f",
+    "employeeId": "121638",
+    "displayName": "Ibrahim Tinwala",
+    "originalFileName": "1000422680.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T12:14:41.785Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:13:49.884Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957b6bfab1c4e894f871377"
+    },
+    "userId": "6957b60fab1c4e894f87136e",
+    "employeeId": "174110",
+    "displayName": "Vikram Ganeshrao Bhimartwar",
+    "originalFileName": "1000522812.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T12:14:55.255Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:16:17.288Z"
+    },
+    "editedFileName": "Vikram-Ganeshrao-Bhimartwar.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957b7a2ab1c4e894f87137b"
+    },
+    "userId": "6957b728ab1c4e894f87137a",
+    "employeeId": "57004",
+    "displayName": "Imran Khan",
+    "originalFileName": "1000192759.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T12:18:42.955Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:24:46.075Z"
+    },
+    "editedFileName": "Imran-Khan.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957b93eab1c4e894f87137d"
+    },
+    "userId": "6957b7d9ab1c4e894f87137c",
+    "employeeId": "41031",
+    "displayName": "Jitendra Singh Shritam Singh Parihar",
+    "originalFileName": "1000839408.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T12:25:34.248Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:29:13.344Z"
+    },
+    "editedFileName": "Jitendra-Singh-Shritam-Singh-Parihar.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957bb40ab1c4e894f871380"
+    },
+    "userId": "6957ba16ab1c4e894f87137e",
+    "employeeId": "138233",
+    "displayName": "Chandan Kumar",
+    "originalFileName": "aa106bc7-0277-4f6a-97f9-52e83766c81d-1_all_699.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T12:34:08.136Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T10:28:16.251Z"
+    },
+    "editedFileName": "Chandan Kumar.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957bb70ab1c4e894f871381"
+    },
+    "userId": "6957bb2fab1c4e894f87137f",
+    "employeeId": "151886",
+    "displayName": "Ritesh Kumar",
+    "originalFileName": "IMG_20251224_124957.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T12:34:56.324Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:30:07.306Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957bd93ab1c4e894f871385"
+    },
+    "userId": "6957bd81ab1c4e894f871384",
+    "employeeId": "131775",
+    "displayName": "Sandeep Kumar",
+    "originalFileName": "1000518478.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T12:44:03.594Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:37:45.699Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957e0e28b9ac6b57927849d"
+    },
+    "userId": "6957e0aa8b9ac6b57927849b",
+    "employeeId": "102606",
+    "displayName": "Ashish Bharatlal Jaiswal",
+    "originalFileName": "FB_IMG_1767366864676.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T15:14:42.998Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:42:55.334Z"
+    },
+    "editedFileName": "Ashish-Bharatlal-Jaiswal.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957e0f48b9ac6b57927849e"
+    },
+    "userId": "6957e0b18b9ac6b57927849c",
+    "employeeId": "172240",
+    "displayName": "Abhishek Dilp Londhe",
+    "originalFileName": "1000200356.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T15:15:00.835Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:43:34.111Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6957e29dffb5de0d5a0d6e14"
+    },
+    "userId": "6957e277ffb5de0d5a0d6e13",
+    "employeeId": "167038",
+    "displayName": "Nitish Kumar",
+    "originalFileName": "90098.webp",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-02T15:22:05.126Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:44:11.912Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958c607578bf86826340c2a"
+    },
+    "userId": "6952b192042a78dfbbff7bce",
+    "employeeId": "132908",
+    "displayName": "Dinesh Dilip Kamble",
+    "originalFileName": "Dinesh Kamble - Neb arise.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T07:32:23.987Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:45:05.282Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cade6104dd5134c88b5f"
+    },
+    "userId": "6958cac96104dd5134c88b5c",
+    "employeeId": "169427",
+    "displayName": "Sachin Shukla",
+    "originalFileName": "1000422752.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T07:53:02.580Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:45:59.240Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958caf369a75ecdac374dad"
+    },
+    "userId": "6958cad56104dd5134c88b5e",
+    "employeeId": "135044",
+    "displayName": "Rupam Paul",
+    "originalFileName": "1000143774.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T07:53:23.566Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:50:22.739Z"
+    },
+    "editedFileName": "Rupam-Paul.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cb1f69a75ecdac374db0"
+    },
+    "userId": "6958cb0069a75ecdac374dae",
+    "employeeId": "155170",
+    "displayName": "Prince Kumar",
+    "originalFileName": "1000268832.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T07:54:07.095Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:51:28.334Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cbca69a75ecdac374db4"
+    },
+    "userId": "6958cb0569a75ecdac374daf",
+    "employeeId": "156824",
+    "displayName": "Manish Kumar Chaurasiya",
+    "originalFileName": "1000641001.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T07:56:58.368Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:57:34.795Z"
+    },
+    "editedFileName": "Manish-Kumar-Chaurasiya.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cbcc69a75ecdac374db5"
+    },
+    "userId": "6958cb8669a75ecdac374db2",
+    "employeeId": "156269",
+    "displayName": "Neeraj Kumar",
+    "originalFileName": "1000624311.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T07:57:00.066Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:54:32.685Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cbe469a75ecdac374db7"
+    },
+    "userId": "6958cb9d69a75ecdac374db3",
+    "employeeId": "126455",
+    "displayName": "Sangmesh .",
+    "originalFileName": "1001302902.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T07:57:24.658Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T11:58:32.838Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cbe469a75ecdac374db8"
+    },
+    "userId": "6958cace6104dd5134c88b5d",
+    "employeeId": "155685",
+    "displayName": "Rahul Malviya",
+    "originalFileName": "1000898034.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T07:57:24.720Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:01:46.448Z"
+    },
+    "editedFileName": "Sangmesh.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cd1569a75ecdac374dbe"
+    },
+    "userId": "6958cd0169a75ecdac374dbd",
+    "employeeId": "173704",
+    "displayName": "Hemraj Kumar Sharma",
+    "originalFileName": "1000334122.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:02:29.116Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:04:13.899Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cd5669a75ecdac374dc0"
+    },
+    "userId": "6957b6abab1c4e894f871374",
+    "employeeId": "174316",
+    "displayName": "Ankit Raj",
+    "originalFileName": "63322.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:03:34.261Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:07:07.281Z"
+    },
+    "editedFileName": "Ankit-Raj.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cd5869a75ecdac374dc1"
+    },
+    "userId": "6958cc3469a75ecdac374db9",
+    "employeeId": "160346",
+    "displayName": "Gopi kishan",
+    "originalFileName": "1001037814.jpeg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:03:36.334Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:08:10.152Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cd6069a75ecdac374dc4"
+    },
+    "userId": "6958ccd269a75ecdac374dbc",
+    "employeeId": "165799",
+    "displayName": "Jotiba More",
+    "originalFileName": "1000645787.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:03:44.990Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:10:49.890Z"
+    },
+    "editedFileName": "Jotiba-More.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cd9669a75ecdac374dc6"
+    },
+    "userId": "6958cd5c69a75ecdac374dc2",
+    "employeeId": "171506",
+    "displayName": "Pankaj Patel",
+    "originalFileName": "FullSizeRender.jpeg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:04:38.569Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:11:39.823Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958cdd269a75ecdac374dc7"
+    },
+    "userId": "6958cb2c69a75ecdac374db1",
+    "employeeId": "133811",
+    "displayName": "Sathish Kumar. S",
+    "originalFileName": "1000614506.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:05:38.751Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:15:42.799Z"
+    },
+    "editedFileName": "Sathish-Kumar.-S.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958ce3969a75ecdac374dc9"
+    },
+    "userId": "6958ce0d69a75ecdac374dc8",
+    "employeeId": "94075",
+    "displayName": "Azemuddin .",
+    "originalFileName": "IMG_0432.jpeg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:07:21.456Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:16:29.164Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d08b69a75ecdac374dcd"
+    },
+    "userId": "6958d03669a75ecdac374dcb",
+    "employeeId": "137492",
+    "displayName": "Ijajul Islam",
+    "originalFileName": "IMG_6646.jpeg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:17:15.958Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:17:36.248Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d0d669a75ecdac374dce"
+    },
+    "userId": "6958d05f69a75ecdac374dcc",
+    "employeeId": "165606",
+    "displayName": "Chandru .",
+    "originalFileName": "IMG-20240905-WA0003.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:18:30.915Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:23:14.139Z"
+    },
+    "editedFileName": "Chandru.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d0f069a75ecdac374dcf"
+    },
+    "userId": "6958d03669a75ecdac374dcb",
+    "employeeId": "137492",
+    "displayName": "Ijajul Islam",
+    "originalFileName": "IMG_20180404_053103_588.JPG",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:18:56.758Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:24:53.476Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d18c69a75ecdac374dd1"
+    },
+    "userId": "6958d13769a75ecdac374dd0",
+    "employeeId": "144137",
+    "displayName": "Aravind Mahesh Madiwalar",
+    "originalFileName": "IMG_3340.jpeg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:21:32.442Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:55:13.815Z"
+    },
+    "editedFileName": "Aravind-Mahesh-Madiwalar.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d24b69a75ecdac374dd3"
+    },
+    "userId": "6958d21669a75ecdac374dd2",
+    "employeeId": "173942",
+    "displayName": "Indal Yadav",
+    "originalFileName": "IMG-20251001-WA0070.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:24:43.620Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:57:25.294Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d26b69a75ecdac374dd6"
+    },
+    "userId": "6958d25869a75ecdac374dd5",
+    "employeeId": "157947",
+    "displayName": "Anshul Lakshkar",
+    "originalFileName": "IMG_20260103_135121-removebg-preview.png",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:25:15.125Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T12:59:27.615Z"
+    },
+    "editedFileName": "Anshul-Lakshkar.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d2bd69a75ecdac374dd7"
+    },
+    "userId": "6958d21669a75ecdac374dd2",
+    "employeeId": "173942",
+    "displayName": "Indal Yadav",
+    "originalFileName": "IMG-20241214-WA0010.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:26:37.641Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T13:01:50.892Z"
+    },
+    "editedFileName": "Indal-Yadav.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d36969a75ecdac374ddb"
+    },
+    "userId": "6958d34969a75ecdac374dd9",
+    "employeeId": "167322",
+    "displayName": "Subhan Ali",
+    "originalFileName": "IMG_7772.jpeg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:29:29.735Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T13:15:05.535Z"
+    },
+    "editedFileName": "Subhan-Ali.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d41e69a75ecdac374de0"
+    },
+    "userId": "6958d35769a75ecdac374dda",
+    "employeeId": "169432",
+    "displayName": "Shaikh Nadimoddin Shaikh Salimoddin",
+    "originalFileName": "1000066620.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:32:30.042Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T13:19:52.136Z"
+    },
+    "editedFileName": "Shaikh-Nadimoddin-Shaikh-Salimoddin.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d41f69a75ecdac374de1"
+    },
+    "userId": "6958d25869a75ecdac374dd5",
+    "employeeId": "157947",
+    "displayName": "Anshul Lakshkar",
+    "originalFileName": "IMG_20260103_135050.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:32:31.280Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T13:25:09.214Z"
+    },
+    "editedFileName": "Anshul-Lakshkar.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d42c69a75ecdac374de2"
+    },
+    "userId": "6958d3f869a75ecdac374ddf",
+    "employeeId": "114837",
+    "displayName": "Abhishek Awasthi",
+    "originalFileName": "43a915a6-6140-4ce0-a848-38bbbd448fac-1_all_83.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:32:44.360Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T13:28:57.564Z"
+    },
+    "editedFileName": "Abhishek-Awasthi.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d47069a75ecdac374de3"
+    },
+    "userId": "6958d3d469a75ecdac374ddd",
+    "employeeId": "172217",
+    "displayName": "Raj Kumari Singh",
+    "originalFileName": "1000085383.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:33:52.885Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T13:30:05.481Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d4eb69a75ecdac374de4"
+    },
+    "userId": "6958d3dd69a75ecdac374dde",
+    "employeeId": "132393",
+    "displayName": "Pradip Kumar Debnath",
+    "originalFileName": "IMG-20251001-WA0002.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:35:55.050Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T13:31:12.874Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d60d69a75ecdac374de6"
+    },
+    "userId": "6958d3d469a75ecdac374ddd",
+    "employeeId": "172217",
+    "displayName": "Raj Kumari Singh",
+    "originalFileName": "1000136154.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:40:45.559Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:18:17.236Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d95bca8053869a47cadd"
+    },
+    "userId": "6958d946ca8053869a47cadc",
+    "employeeId": "169464",
+    "displayName": "Harsh Mishra",
+    "originalFileName": "1000117097.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:54:51.005Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:19:13.279Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958d9c0ca8053869a47cadf"
+    },
+    "userId": "6958d98fca8053869a47cade",
+    "employeeId": "126515",
+    "displayName": "Ravi Kumar Srivastava",
+    "originalFileName": "1000010678.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T08:56:32.433Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:20:37.594Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958daccca8053869a47cae1"
+    },
+    "userId": "6958cb8669a75ecdac374db2",
+    "employeeId": "156269",
+    "displayName": "Neeraj Kumar",
+    "originalFileName": "1000171689.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:01:00.239Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:25:58.633Z"
+    },
+    "editedFileName": "Neeraj-Kumar.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958daf8ca8053869a47cae2"
+    },
+    "userId": "6958daa7ca8053869a47cae0",
+    "employeeId": "157949",
+    "displayName": "Chanchal Rai",
+    "originalFileName": "1000686540.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:01:44.516Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:33:40.918Z"
+    },
+    "editedFileName": "Chanchal-Rai.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958db4cca8053869a47cae4"
+    },
+    "userId": "6958db1aca8053869a47cae3",
+    "employeeId": "157982",
+    "displayName": "Gaurav Sharma",
+    "originalFileName": "1000093887.png",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:03:08.570Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:36:34.621Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e30ed444b963ca93cde5"
+    },
+    "userId": "6958e2f4d444b963ca93cde4",
+    "employeeId": "165609",
+    "displayName": "Kumar Preet Parjapati",
+    "originalFileName": "1000062203.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:36:14.217Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:37:26.246Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e371d444b963ca93cde7"
+    },
+    "userId": "6958e33dd444b963ca93cde6",
+    "employeeId": "166308",
+    "displayName": "Aakash Soni",
+    "originalFileName": "IMG-20200528-WA0000.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:37:53.112Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:39:20.411Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e397d444b963ca93cde8"
+    },
+    "userId": "6958e33dd444b963ca93cde6",
+    "employeeId": "166308",
+    "displayName": "Aakash Soni",
+    "originalFileName": "1000186692.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:38:31.286Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:41:38.247Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e424d444b963ca93cdea"
+    },
+    "userId": "6958e39cd444b963ca93cde9",
+    "employeeId": "158002",
+    "displayName": "Vijay KUMAR Sharma",
+    "originalFileName": "1764921636360.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:40:52.895Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:46:37.727Z"
+    },
+    "editedFileName": "Vijay-KUMAR-Sharma.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e4bbd444b963ca93cded"
+    },
+    "userId": "6958e495d444b963ca93cdec",
+    "employeeId": "56632",
+    "displayName": "Shahnawaz Ansari",
+    "originalFileName": "IMG_4726.jpeg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:43:23.543Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:47:54.824Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e623d444b963ca93cdef"
+    },
+    "userId": "6958ceaa69a75ecdac374dca",
+    "employeeId": "157460",
+    "displayName": "Aneesh Kharvar",
+    "originalFileName": "1000504027.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:49:23.160Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:50:43.563Z"
+    },
+    "editedFileName": "Aneesh-Kharvar.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e6c7d444b963ca93cdf0"
+    },
+    "userId": "6958cb0569a75ecdac374daf",
+    "employeeId": "156824",
+    "displayName": "Manish Kumar Chaurasiya",
+    "originalFileName": "1000641227.png",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:52:07.228Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T14:55:09.294Z"
+    },
+    "editedFileName": "Manish-Kumar-Chaurasiya.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e799d444b963ca93cdf2"
+    },
+    "userId": "6958cb0569a75ecdac374daf",
+    "employeeId": "156824",
+    "displayName": "Manish Kumar Chaurasiya",
+    "originalFileName": "1000641238.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:55:37.808Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T15:07:44.080Z"
+    },
+    "editedFileName": "Manish-Kumar-Chaurasiya1.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e854d444b963ca93cdf3"
+    },
+    "userId": "6958e39cd444b963ca93cde9",
+    "employeeId": "158002",
+    "displayName": "Vijay KUMAR Sharma",
+    "originalFileName": "IMG_20251207_084904-Picsart-BackgroundChanger.jpg.png",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T09:58:44.611Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T15:08:55.978Z"
+    },
+    "editedFileName": "Vijay-KUMAR-Sharma.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958e9b0e5f3814ed8b132ca"
+    },
+    "userId": "6958e39cd444b963ca93cde9",
+    "employeeId": "158002",
+    "displayName": "Vijay KUMAR Sharma",
+    "originalFileName": "IMG_20251202_101632-Picsart-BackgroundChanger.jpg.png",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T10:04:32.843Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-03T15:24:53.681Z"
+    },
+    "editedFileName": "Vijay-KUMAR-Sharma_1.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958ef14ef56bce4765f3dea"
+    },
+    "userId": "6958eee1fa71234026492aab",
+    "employeeId": "78218",
+    "displayName": "Sujeet Kumar Singh",
+    "originalFileName": "IMG_8528.jpeg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T10:27:32.156Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-05T07:07:23.927Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958ef64ef56bce4765f3deb"
+    },
+    "userId": "6958eee1fa71234026492aab",
+    "employeeId": "78218",
+    "displayName": "Sujeet Kumar Singh",
+    "originalFileName": "7ac4d747-426e-48a6-8131-8d70233f70d6.jpeg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T10:28:52.260Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-05T07:13:30.122Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958f1d51a9bb17539d5df63"
+    },
+    "userId": "6958f1b41a9bb17539d5df62",
+    "employeeId": "115691",
+    "displayName": "Shashank Johari",
+    "originalFileName": "1000122063.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T10:39:17.942Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-05T07:14:27.903Z"
+    },
+    "editedFileName": "wrong-photo.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958f5c3a6a0bbdb51021591"
+    },
+    "userId": "6958f5b2a6a0bbdb51021590",
+    "employeeId": "171794",
+    "displayName": "Aaftab Shaikh",
+    "originalFileName": "1001023285.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T10:56:03.314Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6958f64aa6a0bbdb51021592"
+    },
+    "userId": "6958f4d8a6a0bbdb5102158f",
+    "employeeId": "133592",
+    "displayName": "Vikas Kumar Singh",
+    "originalFileName": "20231016_144536.jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T10:58:18.118Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-07T05:30:08.045Z"
+    },
+    "editedFileName": "BarrelBornTableQRDesign (1) (1).png",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958f6cea6a0bbdb51021593"
+    },
+    "userId": "6958f5b2a6a0bbdb51021590",
+    "employeeId": "171794",
+    "displayName": "Aaftab Shaikh",
+    "originalFileName": "1001107860.png",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-03T11:00:30.311Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-07T07:10:19.388Z"
+    },
+    "editedFileName": "600-kb.jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "6958f8f1a6a0bbdb51021595"
+    },
+    "userId": "6958f88da6a0bbdb51021594",
+    "employeeId": "120101",
+    "displayName": "Shiv Narayan Mandal",
+    "originalFileName": "3c4d48e7-a854-4432-8324-45663f6706fb-1_all_26609.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T11:09:37.519Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6958fb12a6a0bbdb51021597"
+    },
+    "userId": "6958f944a6a0bbdb51021596",
+    "employeeId": "141966",
+    "displayName": "Kuldeep Panwar",
+    "originalFileName": "1000433960.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T11:18:42.680Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69590f881a740aaf0e05c76c"
+    },
+    "userId": "69590f681a740aaf0e05c76b",
+    "employeeId": "117680",
+    "displayName": "Pradeep Yadav",
+    "originalFileName": "IMG_20260101_222329.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T12:46:00.423Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6959156c71bc59c4f66db753"
+    },
+    "userId": "695913fc71bc59c4f66db752",
+    "employeeId": "157995",
+    "displayName": "Pawan Singh",
+    "originalFileName": "1000532814.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T13:11:08.684Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695921cd43e3e56267da3995"
+    },
+    "userId": "6959216343e3e56267da3994",
+    "employeeId": "153339",
+    "displayName": "Punit Singh",
+    "originalFileName": "7581.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T14:03:57.613Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695926b1d366974670c7a95e"
+    },
+    "userId": "6959264cd366974670c7a95d",
+    "employeeId": "167048",
+    "displayName": "Ajeet Kumar",
+    "originalFileName": "IMG-20250902-WA0010.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T14:24:49.455Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69592e2f84f87ee4a14ecc71"
+    },
+    "userId": "69592dba84f87ee4a14ecc70",
+    "employeeId": "149843",
+    "displayName": "Mohammad Asad",
+    "originalFileName": "35994.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T14:56:47.552Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695948fb0c3e27fec903ebb3"
+    },
+    "userId": "6958d6d869a75ecdac374de7",
+    "employeeId": "159262",
+    "displayName": "Ganesh Magan Khairnar",
+    "originalFileName": "1001403217.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T16:51:07.992Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69597a86878b45e896fdfcc7"
+    },
+    "userId": "69597950878b45e896fdfcc6",
+    "employeeId": "153274",
+    "displayName": "Mohammed Naumaan",
+    "originalFileName": "1000029271.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-03T20:22:30.025Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6959b74eb83a97bf9e4c9f32"
+    },
+    "userId": "6959b706b83a97bf9e4c9f31",
+    "employeeId": "97790",
+    "displayName": "Mithilesh Verma",
+    "originalFileName": "DSC_2801.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-04T00:41:50.827Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6959e53d9e19865240f0fb0c"
+    },
+    "userId": "6958db1aca8053869a47cae3",
+    "employeeId": "157982",
+    "displayName": "Gaurav Sharma",
+    "originalFileName": "1000366463.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-04T03:57:49.700Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695a0a13d94a658b59654bd3"
+    },
+    "userId": "6957b68bab1c4e894f871371",
+    "employeeId": "171755",
+    "displayName": "Mukul Kumar Singh",
+    "originalFileName": "1764666231973.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-04T06:34:59.046Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695a174cd28c670208923e33"
+    },
+    "userId": "695a1742d28c670208923e32",
+    "employeeId": "170710",
+    "displayName": "Rahul Kumar",
+    "originalFileName": "IMG_20260104_125951.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-04T07:31:24.509Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695a3950a75babd5d3b5e062"
+    },
+    "userId": "6957e277ffb5de0d5a0d6e13",
+    "employeeId": "167038",
+    "displayName": "Nitish Kumar",
+    "originalFileName": "94226.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-04T09:56:32.683Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695a3a4a5e5e25239b431eba"
+    },
+    "userId": "6957e277ffb5de0d5a0d6e13",
+    "employeeId": "167038",
+    "displayName": "Nitish Kumar",
+    "originalFileName": "94226.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-04T10:00:42.974Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695a4569713fb554379a456d"
+    },
+    "userId": "695a4481989f84652d7c486e",
+    "employeeId": "160195",
+    "displayName": "Ashutosh Dubey",
+    "originalFileName": "1000274171.png",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-04T10:48:09.852Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695a545ff6bcf30bf2139981"
+    },
+    "userId": "695a53aaf6bcf30bf2139980",
+    "employeeId": "127342",
+    "displayName": "Makarand Vijay Jadhav",
+    "originalFileName": "makarand Jadhav.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-04T11:51:59.288Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695a6d292b64bcc90a2fb860"
+    },
+    "userId": "6957e277ffb5de0d5a0d6e13",
+    "employeeId": "167038",
+    "displayName": "Nitish Kumar",
+    "originalFileName": "94226.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-04T13:37:45.447Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695b1fb2cca4664f30055ed6"
+    },
+    "userId": "6958f4d8a6a0bbdb5102158f",
+    "employeeId": "133592",
+    "displayName": "Vikas Kumar Singh",
+    "originalFileName": "20230403_143012.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-05T02:19:30.392Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695bed23013eeff807771a8a"
+    },
+    "userId": "6958daa7ca8053869a47cae0",
+    "employeeId": "157949",
+    "displayName": "Chanchal Rai",
+    "originalFileName": "1000727596.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-05T16:56:03.760Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695cd53a99cb2c1441c761a0"
+    },
+    "userId": "6958d3d469a75ecdac374ddd",
+    "employeeId": "172217",
+    "displayName": "Raj Kumari Singh",
+    "originalFileName": "1000137771.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-06T09:26:18.521Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695cd5a099cb2c1441c761a1"
+    },
+    "userId": "6958d3d469a75ecdac374ddd",
+    "employeeId": "172217",
+    "displayName": "Raj Kumari Singh",
+    "originalFileName": "1000132958.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-06T09:28:00.537Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695cd60699cb2c1441c761a2"
+    },
+    "userId": "6958d3d469a75ecdac374ddd",
+    "employeeId": "172217",
+    "displayName": "Raj Kumari Singh",
+    "originalFileName": "1000127716.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-06T09:29:42.034Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695cd71d99cb2c1441c761a3"
+    },
+    "userId": "6958d3d469a75ecdac374ddd",
+    "employeeId": "172217",
+    "displayName": "Raj Kumari Singh",
+    "originalFileName": "1000101541.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-06T09:34:21.275Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695ce8a150524014ffd61f7c"
+    },
+    "userId": "695ce89850524014ffd61f7b",
+    "employeeId": "145085",
+    "displayName": "Haider Ahmed",
+    "originalFileName": "IMG_20260106_161421-removebg-preview.png",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-06T10:49:05.052Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695ce8b650524014ffd61f7d"
+    },
+    "userId": "695ce89850524014ffd61f7b",
+    "employeeId": "145085",
+    "displayName": "Haider Ahmed",
+    "originalFileName": "IMG_20260106_161538-removebg-preview.png",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-06T10:49:26.627Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de0c4b95e6f01614b989e"
+    },
+    "userId": "695de097b95e6f01614b989c",
+    "employeeId": "156315",
+    "displayName": "Quazi Sufiyanoddin Wasimoddin",
+    "originalFileName": "123182.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:27:48.685Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de1cbb95e6f01614b98a2"
+    },
+    "userId": "695de1a7b95e6f01614b98a1",
+    "employeeId": "165654",
+    "displayName": "Aromal S Krishna",
+    "originalFileName": "IMG_3905.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:32:11.595Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de208b95e6f01614b98a3"
+    },
+    "userId": "695de154b95e6f01614b98a0",
+    "employeeId": "150561",
+    "displayName": "Tirupati Nath",
+    "originalFileName": "1000060502.png",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:33:12.279Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de24cb95e6f01614b98a5"
+    },
+    "userId": "695de230b95e6f01614b98a4",
+    "employeeId": "170677",
+    "displayName": "Shah Nikitaben Dipalkumar",
+    "originalFileName": "1000327501.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:34:20.757Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de264b95e6f01614b98a7"
+    },
+    "userId": "695de0b2b95e6f01614b989d",
+    "employeeId": "152193",
+    "displayName": "Santanu De",
+    "originalFileName": "1000094760.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:34:44.535Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de3dcb95e6f01614b98ad"
+    },
+    "userId": "695de39bb95e6f01614b98ab",
+    "employeeId": "165665",
+    "displayName": "Akash Chatterjee",
+    "originalFileName": "1000227315.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:41:00.751Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de3f1b95e6f01614b98ae"
+    },
+    "userId": "695de382b95e6f01614b98aa",
+    "employeeId": "144602",
+    "displayName": "Ravi Kumar",
+    "originalFileName": "1000230108.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:41:21.698Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de402b95e6f01614b98af"
+    },
+    "userId": "695de2b0b95e6f01614b98a8",
+    "employeeId": "149522",
+    "displayName": "Banty .",
+    "originalFileName": "918804cd-cf8c-48ac-acf2-d880cf70ae68.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:41:38.295Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de460b95e6f01614b98b1"
+    },
+    "userId": "695de3d5b95e6f01614b98ac",
+    "employeeId": "34896",
+    "displayName": "Sreenath C",
+    "originalFileName": "IMG_0151.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:43:12.477Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de520b95e6f01614b98b3"
+    },
+    "userId": "695de4feb95e6f01614b98b2",
+    "employeeId": "166635",
+    "displayName": "Deepali Paswan",
+    "originalFileName": "1000293000.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T04:46:24.484Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695de973b95e6f01614b98b6"
+    },
+    "userId": "695de915b95e6f01614b98b5",
+    "employeeId": "174069",
+    "displayName": "Nikhil Sharma",
+    "originalFileName": "IMG_4188_Original.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T05:04:51.392Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695df0081e48c11220203327"
+    },
+    "userId": "695def6c1e48c11220203326",
+    "employeeId": "160216",
+    "displayName": "Nilesh Tiwari",
+    "originalFileName": "1000215303.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T05:32:56.961Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695df03f1e48c11220203329"
+    },
+    "userId": "695def6c1e48c11220203326",
+    "employeeId": "160216",
+    "displayName": "Nilesh Tiwari",
+    "originalFileName": "1000162812.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T05:33:51.777Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695df1e31e48c1122020332e"
+    },
+    "userId": "695df0d01e48c1122020332b",
+    "employeeId": "157700",
+    "displayName": "Arnab Mondal",
+    "originalFileName": "1000028518.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T05:40:51.190Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695df2b81e48c11220203334"
+    },
+    "userId": "695df29e1e48c11220203332",
+    "employeeId": "162575",
+    "displayName": "Palakkumar Sureshbhai Patel",
+    "originalFileName": "IMG-20260105-WA0052.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T05:44:24.974Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695df3631e48c11220203336"
+    },
+    "userId": "695df1de1e48c1122020332d",
+    "employeeId": "91524",
+    "displayName": "Nikunj Vallabhbhai Koriya",
+    "originalFileName": "IMG-20260107-WA0003.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T05:47:15.477Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695df4581e48c11220203337"
+    },
+    "userId": "695df3071e48c11220203335",
+    "employeeId": "161898",
+    "displayName": "Mithilesh D",
+    "originalFileName": "WhatsApp Image 2026-01-07 at 11.19.46 AM.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T05:51:20.860Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695df46a1e48c11220203339"
+    },
+    "userId": "695df3071e48c11220203335",
+    "employeeId": "161898",
+    "displayName": "Mithilesh D",
+    "originalFileName": "WhatsApp Image 2026-01-07 at 11.19.46 AM.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T05:51:38.727Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695df6c6b212f97934e925ad"
+    },
+    "userId": "695df65eb212f97934e925ac",
+    "employeeId": "162468",
+    "displayName": "Savankumar  Prakashchandra Raval",
+    "originalFileName": "IMG_20250318_223200_503.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T06:01:42.636Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695df812b212f97934e925af"
+    },
+    "userId": "695df77ab212f97934e925ae",
+    "employeeId": "34396",
+    "displayName": "Amit Kumar Pandey",
+    "originalFileName": "Screenshot_20250912_185200_Google.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T06:07:14.588Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695dfcab07853f47a90e701e"
+    },
+    "userId": "695dfbf707853f47a90e701c",
+    "employeeId": "160249",
+    "displayName": "Parmar Mitesh Babubhai",
+    "originalFileName": "48fc2d74-2446-40b4-923d-9b9d7d55c738.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T06:26:51.237Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695dff3ba7891fe4fbf6e0f9"
+    },
+    "userId": "695df2711e48c11220203330",
+    "employeeId": "173324",
+    "displayName": "Mandliya Kishan Bharatbhai",
+    "originalFileName": "IMG_20240723_122916.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T06:37:47.554Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e00caf02f29a42cc4683d"
+    },
+    "userId": "695e003fa7891fe4fbf6e0fa",
+    "employeeId": "88508",
+    "displayName": "Amer Farooqui",
+    "originalFileName": "1000033228.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T06:44:26.267Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e027aeba715d2bf7b349e"
+    },
+    "userId": "695e010826286dfd8075e4bf",
+    "employeeId": "33885",
+    "displayName": "Manickam K",
+    "originalFileName": "Neb1.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T06:51:38.778Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e0384eba715d2bf7b34a0"
+    },
+    "userId": "695e02daeba715d2bf7b349f",
+    "employeeId": "173679",
+    "displayName": "Ajeet Ramyad Ramyad Vishwakarma",
+    "originalFileName": "465738e7-bb8a-4264-9660-67268c575d13.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T06:56:04.160Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e0d475312abddf4cc785d"
+    },
+    "userId": "6937ad2cedc68e753da7e83f",
+    "employeeId": "111111",
+    "displayName": "HO",
+    "originalFileName": "600-kb (1).jpg",
+    "originalFilePath": "",
+    "status": "completed",
+    "uploadedAt": {
+      "$date": "2026-01-07T07:37:43.546Z"
+    },
+    "completedAt": {
+      "$date": "2026-01-07T07:39:14.040Z"
+    },
+    "editedFileName": "600-kb (2).jpg",
+    "editedFilePath": ""
+  },
+  {
+    "_id": {
+      "$oid": "695e1bfa4778093546692455"
+    },
+    "userId": "695e1bdb4778093546692454",
+    "employeeId": "163568",
+    "displayName": "G Sai Kumar",
+    "originalFileName": "1000016459.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T08:40:26.636Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e2ef41a75d3a8e9175c2c"
+    },
+    "userId": "695e152c9e93ca445763e07d",
+    "employeeId": "156444",
+    "displayName": "Shaikh Nadeem Shaikh Munaf .",
+    "originalFileName": "2594.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T10:01:24.940Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e354be06e1c3e6a5ffb09"
+    },
+    "userId": "695e351150c869d401893197",
+    "employeeId": "136663",
+    "displayName": "Balachandra K",
+    "originalFileName": "Screenshot_20260107_155813_Gallery.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T10:28:27.894Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e36a1222c789881110431"
+    },
+    "userId": "695e3683222c789881110430",
+    "employeeId": "168673",
+    "displayName": "Suryanarayan K U",
+    "originalFileName": "f4a0c435-2353-4426-bcca-db97b521aaac-1_all_2854.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T10:34:09.165Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e398c926b4fd7f7163887"
+    },
+    "userId": "695e396af75a93f7a1c14b0a",
+    "employeeId": "169091",
+    "displayName": "Mahammad Anasurahiman",
+    "originalFileName": "Screenshot_20251224_122319.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T10:46:36.624Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e3c9479a5b501cb4ca8f2"
+    },
+    "userId": "695e39b8926b4fd7f7163888",
+    "employeeId": "166007",
+    "displayName": "Sunil Sharma",
+    "originalFileName": "IMG-20251010-WA0032_copy_1716x2288.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T10:59:32.943Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e3da2ef764573bd0ce10b"
+    },
+    "userId": "695e3ccd7c7f1ae56a76a56b",
+    "employeeId": "157759",
+    "displayName": "Arun Kumar K",
+    "originalFileName": "Screenshot_2024-06-29-13-34-48-96_92460851df6f172a4592fca41cc2d2e6.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T11:04:02.212Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e3e38a5a0e41515c25166"
+    },
+    "userId": "695e3db7731b258366b28eb1",
+    "employeeId": "160351",
+    "displayName": "Parekh Smeet Kiritkumar",
+    "originalFileName": "IMG_0813.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T11:06:32.388Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e59120412f63bafa9d035"
+    },
+    "userId": "695de230b95e6f01614b98a4",
+    "employeeId": "170677",
+    "displayName": "Shah Nikitaben Dipalkumar",
+    "originalFileName": "1000345592.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T13:01:06.920Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e6752654dc5e0a306c0e8"
+    },
+    "userId": "695e23398a2e9d3bbbba28af",
+    "employeeId": "172395",
+    "displayName": "Rathod Rahul Maganbhai",
+    "originalFileName": "IMG-20251115-WA0110.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T14:01:54.916Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e6a3af09018381db2d8ef"
+    },
+    "userId": "695e698cf09018381db2d8ee",
+    "employeeId": "37965",
+    "displayName": "Deepak Kumar Bhatti",
+    "originalFileName": "1000368158.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T14:14:18.655Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e70fca389ea87d3bad196"
+    },
+    "userId": "695e70daa389ea87d3bad195",
+    "employeeId": "162065",
+    "displayName": "Sekhar Saha",
+    "originalFileName": "1000544782.jpg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T14:43:08.235Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e80bb42f112410fde6ae8"
+    },
+    "userId": "695e809d42f112410fde6ae7",
+    "employeeId": "132034",
+    "displayName": "Abhinav Madhukar Dongre",
+    "originalFileName": "64febb44-1a37-4d8d-8d9f-97f9a47665e5.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T15:50:19.622Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "695e826c42f112410fde6ae9"
+    },
+    "userId": "695e809d42f112410fde6ae7",
+    "employeeId": "132034",
+    "displayName": "Abhinav Madhukar Dongre",
+    "originalFileName": "IMG_1256.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-07T15:57:32.165Z"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6960f67ecac8daff0bb5f4f5"
+    },
+    "userId": "6960f62acac8daff0bb5f4f4",
+    "employeeId": "173730",
+    "displayName": "Vivek Mishra",
+    "originalFileName": "IMG_9862.jpeg",
+    "originalFilePath": "",
+    "status": "pending",
+    "uploadedAt": {
+      "$date": "2026-01-09T12:37:18.787Z"
+    }
+  }
+]

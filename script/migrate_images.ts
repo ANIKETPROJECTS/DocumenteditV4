@@ -8,7 +8,7 @@ async function migrate() {
   const db = await getDatabase();
   const collection = db.collection("image_storage");
 
-  const rawContent = fs.readFileSync(path.join(process.cwd(), "attached_assets/Pasted-now-in-the-root-folder-i-have-uploaded-a-folder-named-i_1768150545403.txt"), "utf8");
+  const rawContent = fs.readFileSync(path.join(process.cwd(), "attached_assets/Pasted-now-in-the-root-folder-i-have-uploaded-a-folder-named-i_1768155069569.txt"), "utf8");
   
   // Find the start of the JSON array
   const jsonStart = rawContent.indexOf('[');
